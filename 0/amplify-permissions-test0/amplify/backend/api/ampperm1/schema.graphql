@@ -1,6 +1,6 @@
 
 type User @model {
-  deviceList(limit: Int, nextToken: String): [Device] @connection(name: "DeviceUsers")
+  deviceList: [DeviceUser] @connection(name: "UserDevices")
   ratingList(limit: Int, nextToken: String): [Rating] @connection(name: "UserRatings")
   #ScheduleList(limit: Int, nextToken: String): ScheduleConnection
   email: AWSEmail
@@ -29,5 +29,15 @@ type Device @model {
   deviceId: String!
   deviceOrigionalName: String!
   macId: String!
-  userList: [User] @connection(name: "DeviceUsers")
+  userList: [DeviceUser] @connection(name: "DeviceUsers")
+}
+
+# Create a join model and disable queries as you don't need them
+# this is required due to amplify cli lack of many-to-many support
+# tracked here https://github.com/aws-amplify/amplify-cli/issues/91
+# documented here https://aws-amplify.github.io/docs/cli/graphql?sdk=iok#connection (under many-to-many heading)
+type DeviceUser @model(queries: null) {
+  id: ID!
+  device: Device! @connection(name: "DeviceUsers")
+  user: User! @connection(name: "UserDevices")
 }

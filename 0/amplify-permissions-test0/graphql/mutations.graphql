@@ -1,15 +1,19 @@
 # this is an auto generated file. This will be overwritten
 mutation CreateUser($input: CreateUserInput!) {
   createUser(input: $input) {
-    ratingList {
-      ratingCount
-      ratingId
-      ratingTime
-      user {
-        email
-        name
-        userId
+    deviceList {
+      items {
+        id
       }
+      nextToken
+    }
+    ratingList {
+      items {
+        ratingCount
+        ratingId
+        ratingTime
+      }
+      nextToken
     }
     email
     name
@@ -18,15 +22,19 @@ mutation CreateUser($input: CreateUserInput!) {
 }
 mutation UpdateUser($input: UpdateUserInput!) {
   updateUser(input: $input) {
-    ratingList {
-      ratingCount
-      ratingId
-      ratingTime
-      user {
-        email
-        name
-        userId
+    deviceList {
+      items {
+        id
       }
+      nextToken
+    }
+    ratingList {
+      items {
+        ratingCount
+        ratingId
+        ratingTime
+      }
+      nextToken
     }
     email
     name
@@ -35,15 +43,19 @@ mutation UpdateUser($input: UpdateUserInput!) {
 }
 mutation DeleteUser($input: DeleteUserInput!) {
   deleteUser(input: $input) {
-    ratingList {
-      ratingCount
-      ratingId
-      ratingTime
-      user {
-        email
-        name
-        userId
+    deviceList {
+      items {
+        id
       }
+      nextToken
+    }
+    ratingList {
+      items {
+        ratingCount
+        ratingId
+        ratingTime
+      }
+      nextToken
     }
     email
     name
@@ -80,10 +92,11 @@ mutation CreateRating($input: CreateRatingInput!) {
     ratingId
     ratingTime
     user {
+      deviceList {
+        nextToken
+      }
       ratingList {
-        ratingCount
-        ratingId
-        ratingTime
+        nextToken
       }
       email
       name
@@ -97,10 +110,11 @@ mutation UpdateRating($input: UpdateRatingInput!) {
     ratingId
     ratingTime
     user {
+      deviceList {
+        nextToken
+      }
       ratingList {
-        ratingCount
-        ratingId
-        ratingTime
+        nextToken
       }
       email
       name
@@ -114,10 +128,122 @@ mutation DeleteRating($input: DeleteRatingInput!) {
     ratingId
     ratingTime
     user {
+      deviceList {
+        nextToken
+      }
       ratingList {
-        ratingCount
-        ratingId
-        ratingTime
+        nextToken
+      }
+      email
+      name
+      userId
+    }
+  }
+}
+mutation CreateDevice($input: CreateDeviceInput!) {
+  createDevice(input: $input) {
+    deviceId
+    deviceOrigionalName
+    macId
+    userList {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+mutation UpdateDevice($input: UpdateDeviceInput!) {
+  updateDevice(input: $input) {
+    deviceId
+    deviceOrigionalName
+    macId
+    userList {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+mutation DeleteDevice($input: DeleteDeviceInput!) {
+  deleteDevice(input: $input) {
+    deviceId
+    deviceOrigionalName
+    macId
+    userList {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateDeviceUser($input: CreateDeviceUserInput!) {
+  createDeviceUser(input: $input) {
+    id
+    device {
+      deviceId
+      deviceOrigionalName
+      macId
+      userList {
+        nextToken
+      }
+    }
+    user {
+      deviceList {
+        nextToken
+      }
+      ratingList {
+        nextToken
+      }
+      email
+      name
+      userId
+    }
+  }
+}
+mutation UpdateDeviceUser($input: UpdateDeviceUserInput!) {
+  updateDeviceUser(input: $input) {
+    id
+    device {
+      deviceId
+      deviceOrigionalName
+      macId
+      userList {
+        nextToken
+      }
+    }
+    user {
+      deviceList {
+        nextToken
+      }
+      ratingList {
+        nextToken
+      }
+      email
+      name
+      userId
+    }
+  }
+}
+mutation DeleteDeviceUser($input: DeleteDeviceUserInput!) {
+  deleteDeviceUser(input: $input) {
+    id
+    device {
+      deviceId
+      deviceOrigionalName
+      macId
+      userList {
+        nextToken
+      }
+    }
+    user {
+      deviceList {
+        nextToken
+      }
+      ratingList {
+        nextToken
       }
       email
       name

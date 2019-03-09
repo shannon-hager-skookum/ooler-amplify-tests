@@ -1,15 +1,19 @@
 # this is an auto generated file. This will be overwritten
 query GetUser($id: ID!) {
   getUser(id: $id) {
-    ratingList {
-      ratingCount
-      ratingId
-      ratingTime
-      user {
-        email
-        name
-        userId
+    deviceList {
+      items {
+        id
       }
+      nextToken
+    }
+    ratingList {
+      items {
+        ratingCount
+        ratingId
+        ratingTime
+      }
+      nextToken
     }
     email
     name
@@ -23,10 +27,11 @@ query ListUsers(
 ) {
   listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      deviceList {
+        nextToken
+      }
       ratingList {
-        ratingCount
-        ratingId
-        ratingTime
+        nextToken
       }
       email
       name
@@ -64,10 +69,11 @@ query GetRating($id: ID!) {
     ratingId
     ratingTime
     user {
+      deviceList {
+        nextToken
+      }
       ratingList {
-        ratingCount
-        ratingId
-        ratingTime
+        nextToken
       }
       email
       name
@@ -89,6 +95,36 @@ query ListRatings(
         email
         name
         userId
+      }
+    }
+    nextToken
+  }
+}
+query GetDevice($id: ID!) {
+  getDevice(id: $id) {
+    deviceId
+    deviceOrigionalName
+    macId
+    userList {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+query ListDevices(
+  $filter: ModelDeviceFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listDevices(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      deviceId
+      deviceOrigionalName
+      macId
+      userList {
+        nextToken
       }
     }
     nextToken

@@ -1,15 +1,19 @@
 # this is an auto generated file. This will be overwritten
 subscription OnCreateUser {
   onCreateUser {
-    ratingList {
-      ratingCount
-      ratingId
-      ratingTime
-      user {
-        email
-        name
-        userId
+    deviceList {
+      items {
+        id
       }
+      nextToken
+    }
+    ratingList {
+      items {
+        ratingCount
+        ratingId
+        ratingTime
+      }
+      nextToken
     }
     email
     name
@@ -18,15 +22,19 @@ subscription OnCreateUser {
 }
 subscription OnUpdateUser {
   onUpdateUser {
-    ratingList {
-      ratingCount
-      ratingId
-      ratingTime
-      user {
-        email
-        name
-        userId
+    deviceList {
+      items {
+        id
       }
+      nextToken
+    }
+    ratingList {
+      items {
+        ratingCount
+        ratingId
+        ratingTime
+      }
+      nextToken
     }
     email
     name
@@ -35,15 +43,19 @@ subscription OnUpdateUser {
 }
 subscription OnDeleteUser {
   onDeleteUser {
-    ratingList {
-      ratingCount
-      ratingId
-      ratingTime
-      user {
-        email
-        name
-        userId
+    deviceList {
+      items {
+        id
       }
+      nextToken
+    }
+    ratingList {
+      items {
+        ratingCount
+        ratingId
+        ratingTime
+      }
+      nextToken
     }
     email
     name
@@ -80,10 +92,11 @@ subscription OnCreateRating {
     ratingId
     ratingTime
     user {
+      deviceList {
+        nextToken
+      }
       ratingList {
-        ratingCount
-        ratingId
-        ratingTime
+        nextToken
       }
       email
       name
@@ -97,10 +110,11 @@ subscription OnUpdateRating {
     ratingId
     ratingTime
     user {
+      deviceList {
+        nextToken
+      }
       ratingList {
-        ratingCount
-        ratingId
-        ratingTime
+        nextToken
       }
       email
       name
@@ -114,10 +128,122 @@ subscription OnDeleteRating {
     ratingId
     ratingTime
     user {
+      deviceList {
+        nextToken
+      }
       ratingList {
-        ratingCount
-        ratingId
-        ratingTime
+        nextToken
+      }
+      email
+      name
+      userId
+    }
+  }
+}
+subscription OnCreateDevice {
+  onCreateDevice {
+    deviceId
+    deviceOrigionalName
+    macId
+    userList {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+subscription OnUpdateDevice {
+  onUpdateDevice {
+    deviceId
+    deviceOrigionalName
+    macId
+    userList {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+subscription OnDeleteDevice {
+  onDeleteDevice {
+    deviceId
+    deviceOrigionalName
+    macId
+    userList {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+subscription OnCreateDeviceUser {
+  onCreateDeviceUser {
+    id
+    device {
+      deviceId
+      deviceOrigionalName
+      macId
+      userList {
+        nextToken
+      }
+    }
+    user {
+      deviceList {
+        nextToken
+      }
+      ratingList {
+        nextToken
+      }
+      email
+      name
+      userId
+    }
+  }
+}
+subscription OnUpdateDeviceUser {
+  onUpdateDeviceUser {
+    id
+    device {
+      deviceId
+      deviceOrigionalName
+      macId
+      userList {
+        nextToken
+      }
+    }
+    user {
+      deviceList {
+        nextToken
+      }
+      ratingList {
+        nextToken
+      }
+      email
+      name
+      userId
+    }
+  }
+}
+subscription OnDeleteDeviceUser {
+  onDeleteDeviceUser {
+    id
+    device {
+      deviceId
+      deviceOrigionalName
+      macId
+      userList {
+        nextToken
+      }
+    }
+    user {
+      deviceList {
+        nextToken
+      }
+      ratingList {
+        nextToken
       }
       email
       name
