@@ -1,0 +1,39 @@
+#type Blog @model {
+#  id: ID!
+#  name: String!
+#  posts: [Post] @connection(name: "BlogPosts")
+#}
+#type Post @model {
+#  id: ID!
+#  title: String!
+#  blog: Blog @connection(name: "BlogPosts")
+#  comments: [Comment] @connection(name: "PostComments")
+#}
+#type Comment @model {
+#  id: ID!
+#  content: String
+#  post: Post @connection(name: "PostComments")
+#}
+
+type User @model {
+  #DeviceList(limit: Int, nextToken: String): DeviceConnection
+  ratingList(limit: Int, nextToken: String): Rating @connection(name: "UserRatings")
+  #ScheduleList(limit: Int, nextToken: String): ScheduleConnection
+  email: AWSEmail
+  name: String!
+  userId: ID!
+}
+
+type AppUsage @model {
+  appUsageId: String!
+  parameters: String!
+  timestamp: String!
+  userId: String!
+}
+
+type Rating @model {
+  ratingCount: Int!
+  ratingId: String!
+  ratingTime: String!
+  user: User @connection(name: "UserRatings")
+}

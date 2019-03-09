@@ -1,0 +1,33 @@
+
+type User @model {
+  deviceList(limit: Int, nextToken: String): [Device] @connection(name: "DeviceUsers")
+  ratingList(limit: Int, nextToken: String): [Rating] @connection(name: "UserRatings")
+  #ScheduleList(limit: Int, nextToken: String): ScheduleConnection
+  email: AWSEmail
+  name: String!
+  userId: ID!
+}
+
+type AppUsage @model {
+  appUsageId: String!
+  parameters: String!
+  timestamp: String!
+  userId: String!
+}
+
+type Rating @model {
+  ratingCount: Int!
+  ratingId: String!
+  ratingTime: String!
+  user: User @connection(name: "UserRatings")
+}
+
+
+type Device @model {
+  #DeviceDataList(limit: Int, nextToken: String): DeviceDataConnection
+  #DeviceDetailsList(limit: Int, nextToken: String): DeviceDetailsConnection
+  deviceId: String!
+  deviceOrigionalName: String!
+  macId: String!
+  userList: [User] @connection(name: "DeviceUsers")
+}

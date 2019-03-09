@@ -1,0 +1,96 @@
+# this is an auto generated file. This will be overwritten
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    ratingList {
+      ratingCount
+      ratingId
+      ratingTime
+      user {
+        email
+        name
+        userId
+      }
+    }
+    email
+    name
+    userId
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      ratingList {
+        ratingCount
+        ratingId
+        ratingTime
+      }
+      email
+      name
+      userId
+    }
+    nextToken
+  }
+}
+query GetAppUsage($id: ID!) {
+  getAppUsage(id: $id) {
+    appUsageId
+    parameters
+    timestamp
+    userId
+  }
+}
+query ListAppUsages(
+  $filter: ModelAppUsageFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAppUsages(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      appUsageId
+      parameters
+      timestamp
+      userId
+    }
+    nextToken
+  }
+}
+query GetRating($id: ID!) {
+  getRating(id: $id) {
+    ratingCount
+    ratingId
+    ratingTime
+    user {
+      ratingList {
+        ratingCount
+        ratingId
+        ratingTime
+      }
+      email
+      name
+      userId
+    }
+  }
+}
+query ListRatings(
+  $filter: ModelRatingFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listRatings(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      ratingCount
+      ratingId
+      ratingTime
+      user {
+        email
+        name
+        userId
+      }
+    }
+    nextToken
+  }
+}
