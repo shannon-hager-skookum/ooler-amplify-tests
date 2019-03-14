@@ -1,12 +1,4 @@
 {
-    "identityPoolName": "cognito6196d8b1_identitypool_6196d8b1",
-    "allowUnauthenticatedIdentities": false,
-    "thirdPartyAuth": false,
-    "lambdaLogPolicy": "cognito6196d8b1_lambda_log_policy",
-    "openIdLambdaRoleName": "cognito6196d8b1_openid_lambda_role",
-    "openIdRolePolicy": "cognito6196d8b1_openid_pass_role_policy",
-    "openIdLambdaIAMPolicy": "cognito6196d8b1_openid_lambda_iam_policy",
-    "openIdLogPolicy": "cognito6196d8b1_openid_lambda_log_policy",
     "userPoolName": "cognito6196d8b1_userpool_6196d8b1",
     "autoVerifiedAttributes": [
         "email"
@@ -20,7 +12,7 @@
     "policyName": "cognito6196d8b1-sns-policy",
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Your verification code",
+    "emailVerificationSubject": "Your account verification code",
     "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
@@ -35,7 +27,7 @@
     ],
     "userpoolClientName": "cognito6196d8b1_app_client",
     "userpoolClientGenerateSecret": true,
-    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientRefreshTokenValidity": "1",
     "userpoolClientReadAttributes": [
         "email"
     ],
@@ -47,9 +39,17 @@
     "userpoolClientLogPolicy": "cognito6196d8b1_userpoolclient_lambda_log_policy",
     "userpoolClientLambdaPolicy": "cognito6196d8b1_userpoolclient_lambda_iam_policy",
     "userpoolClientSetAttributes": false,
-    "useDefault": "default",
+    "identityPoolName": "cognito6196d8b1_identitypool_6196d8b1",
+    "allowUnauthenticatedIdentities": false,
+    "thirdPartyAuth": false,
+    "lambdaLogPolicy": "cognito6196d8b1_lambda_log_policy",
+    "openIdLambdaRoleName": "cognito6196d8b1_openid_lambda_role",
+    "openIdRolePolicy": "cognito6196d8b1_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "cognito6196d8b1_openid_lambda_iam_policy",
+    "openIdLogPolicy": "cognito6196d8b1_openid_lambda_log_policy",
+    "useDefault": "manual",
     "resourceName": "cognito6196d8b1",
-    "authSelections": "identityPoolAndUserPool",
+    "authSelections": "userPoolOnly",
     "authRoleName": {
         "Ref": "AuthRoleName"
     },
