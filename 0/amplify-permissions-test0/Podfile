@@ -8,13 +8,13 @@ target 'amplify-permissions-test0' do
   use_frameworks!
 
   # Pods for amplify-permissions-test0
-  pod 'AWSAppSync', '~> 2.10.3'
+  pod 'AWSAppSync', '2.10.0'
 
   # Required dependency for AWSMobileClient auth
-  pod 'AWSMobileClient', '~> 2.9.0'
+  pod 'AWSMobileClient', '~> 2.8.0'
 
   # Optional dependency required to use drop-in UI
-  pod 'AWSAuthUI', '~> 2.9.0'
-  pod 'AWSUserPoolsSignIn', '~> 2.9.0'
+  pod 'AWSAuthUI', '~> 2.8.0'
+  pod 'AWSUserPoolsSignIn', '~> 2.8.0'
 
 end
