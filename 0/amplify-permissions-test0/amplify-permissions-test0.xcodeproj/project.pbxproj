@@ -13,8 +13,8 @@
 		0FB0B561223316200035BFA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FB0B560223316200035BFA0 /* Assets.xcassets */; };
 		0FB0B564223316200035BFA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FB0B562223316200035BFA0 /* LaunchScreen.storyboard */; };
 		0FB0B56C22340CF50035BFA0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB0B56B22340CF50035BFA0 /* API.swift */; };
-		0FB0B56E22340D4B0035BFA0 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FB0B56D22340D4B0035BFA0 /* awsconfiguration.json */; };
 		0FB0B57022359E150035BFA0 /* AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB0B56F22359E150035BFA0 /* AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift */; };
+		0FB90C9C223B130100760E81 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FB0B56D22340D4B0035BFA0 /* awsconfiguration.json */; };
 		391A18B62DCAEBAE3E5589BC /* Pods_amplify_permissions_test0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C9DD2054B6A41B890DF021 /* Pods_amplify_permissions_test0.framework */; };
 /* End PBXBuildFile section */
 
@@ -157,7 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FB0B56E22340D4B0035BFA0 /* awsconfiguration.json in Resources */,
+				0FB90C9C223B130100760E81 /* awsconfiguration.json in Resources */,
 				0FB0B564223316200035BFA0 /* LaunchScreen.storyboard in Resources */,
 				0FB0B561223316200035BFA0 /* Assets.xcassets in Resources */,
 				0FB0B55F2233161D0035BFA0 /* Main.storyboard in Resources */,
