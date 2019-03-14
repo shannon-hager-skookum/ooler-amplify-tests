@@ -14,6 +14,7 @@
 		0FB0B564223316200035BFA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FB0B562223316200035BFA0 /* LaunchScreen.storyboard */; };
 		0FB0B56C22340CF50035BFA0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB0B56B22340CF50035BFA0 /* API.swift */; };
 		0FB0B56E22340D4B0035BFA0 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FB0B56D22340D4B0035BFA0 /* awsconfiguration.json */; };
+		0FB0B57022359E150035BFA0 /* AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB0B56F22359E150035BFA0 /* AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift */; };
 		391A18B62DCAEBAE3E5589BC /* Pods_amplify_permissions_test0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C9DD2054B6A41B890DF021 /* Pods_amplify_permissions_test0.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		0FB0B565223316200035BFA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FB0B56B22340CF50035BFA0 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		0FB0B56D22340D4B0035BFA0 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		0FB0B56F22359E150035BFA0 /* AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift"; sourceTree = "<group>"; };
 		60C9DD2054B6A41B890DF021 /* Pods_amplify_permissions_test0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_amplify_permissions_test0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC95CBD0A9913CBB6B965A22 /* Pods-amplify-permissions-test0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amplify-permissions-test0.release.xcconfig"; path = "Target Support Files/Pods-amplify-permissions-test0/Pods-amplify-permissions-test0.release.xcconfig"; sourceTree = "<group>"; };
 		CE03E333E71105F0B16B10F3 /* Pods-amplify-permissions-test0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amplify-permissions-test0.debug.xcconfig"; path = "Target Support Files/Pods-amplify-permissions-test0/Pods-amplify-permissions-test0.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				0FB0B560223316200035BFA0 /* Assets.xcassets */,
 				0FB0B562223316200035BFA0 /* LaunchScreen.storyboard */,
 				0FB0B565223316200035BFA0 /* Info.plist */,
+				0FB0B56F22359E150035BFA0 /* AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift */,
 			);
 			path = "amplify-permissions-test0";
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FB0B57022359E150035BFA0 /* AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift in Sources */,
 				0FB0B55C2233161D0035BFA0 /* ViewController.swift in Sources */,
 				0FB0B56C22340CF50035BFA0 /* API.swift in Sources */,
 				0FB0B55A2233161D0035BFA0 /* AppDelegate.swift in Sources */,
