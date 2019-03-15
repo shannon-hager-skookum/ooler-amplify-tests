@@ -10,7 +10,7 @@ projects:
         codeGenTarget: swift
         generatedFileName: API.swift
         docsFilePath: graphql
-        graphQLApiId: kzykjotnovatrbivrnpoj7paba
+        graphQLApiId: 3z7vc4ztvze3ndtr5qqstaj5ne
       endpoints:
         prod: >-
-          https://l4w6rgj7qvcyde273bxdatzrja.appsync-api.us-east-1.amazonaws.com/graphql
+          https://shcwqu53wvagzasl54bk227r5m.appsync-api.us-east-1.amazonaws.com/graphql
