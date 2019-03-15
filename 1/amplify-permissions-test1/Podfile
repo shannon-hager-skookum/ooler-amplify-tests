@@ -1,0 +1,20 @@
+# amplify-permissions-test1
+
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'amplify-permissions-test1' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for amplify-permissions-test1
+  pod 'AWSAppSync', '2.10.0'
+
+  # Required dependency for AWSMobileClient auth
+  pod 'AWSMobileClient', '~> 2.8.0'
+
+  # Optional dependency required to use drop-in UI
+  pod 'AWSAuthUI', '~> 2.8.0'
+  pod 'AWSUserPoolsSignIn', '~> 2.8.0'
+
+end
