@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FC43AEC223B30C2003597F4 /* AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC43AEB223B30C2003597F4 /* AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift */; };
+		0FC43AEF223B30FD003597F4 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FC43AED223B30FC003597F4 /* awsconfiguration.json */; };
+		0FC43AF0223B30FD003597F4 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC43AEE223B30FC003597F4 /* API.swift */; };
 		0FDB2445223B29EA0061CC87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB2444223B29EA0061CC87 /* AppDelegate.swift */; };
 		0FDB2447223B29EA0061CC87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB2446223B29EA0061CC87 /* ViewController.swift */; };
 		0FDB244A223B29EA0061CC87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDB2448223B29EA0061CC87 /* Main.storyboard */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FC43AEB223B30C2003597F4 /* AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift"; sourceTree = "<group>"; };
+		0FC43AED223B30FC003597F4 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		0FC43AEE223B30FC003597F4 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		0FDB2441223B29EA0061CC87 /* amplify-permissions-test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "amplify-permissions-test1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FDB2444223B29EA0061CC87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FDB2446223B29EA0061CC87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,10 +69,13 @@
 			children = (
 				0FDB2444223B29EA0061CC87 /* AppDelegate.swift */,
 				0FDB2446223B29EA0061CC87 /* ViewController.swift */,
+				0FC43AEE223B30FC003597F4 /* API.swift */,
+				0FC43AED223B30FC003597F4 /* awsconfiguration.json */,
 				0FDB2448223B29EA0061CC87 /* Main.storyboard */,
 				0FDB244B223B29EC0061CC87 /* Assets.xcassets */,
 				0FDB244D223B29EC0061CC87 /* LaunchScreen.storyboard */,
 				0FDB2450223B29EC0061CC87 /* Info.plist */,
+				0FC43AEB223B30C2003597F4 /* AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift */,
 			);
 			path = "amplify-permissions-test1";
 			sourceTree = "<group>";
@@ -85,7 +94,6 @@
 				D21BA66E1A46EF44DF49BC47 /* Pods-amplify-permissions-test1.debug.xcconfig */,
 				4257B7287CFEB9787924EAFF /* Pods-amplify-permissions-test1.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -149,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC43AEF223B30FD003597F4 /* awsconfiguration.json in Resources */,
 				0FDB244F223B29EC0061CC87 /* LaunchScreen.storyboard in Resources */,
 				0FDB244C223B29EC0061CC87 /* Assets.xcassets in Resources */,
 				0FDB244A223B29EA0061CC87 /* Main.storyboard in Resources */,
@@ -229,6 +238,8 @@
 			files = (
 				0FDB2447223B29EA0061CC87 /* ViewController.swift in Sources */,
 				0FDB2445223B29EA0061CC87 /* AppDelegate.swift in Sources */,
+				0FC43AF0223B30FD003597F4 /* API.swift in Sources */,
+				0FC43AEC223B30C2003597F4 /* AWSMobileClient+AWSCognitoUsePoolsAuthProviderAsync.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
