@@ -1,0 +1,20 @@
+# envs-test-0
+
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'envs-test-0' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for envs-test-0
+  pod 'AWSAppSync', '2.10.3'
+
+  # Required dependency for AWSMobileClient auth
+  pod 'AWSMobileClient', '~> 2.9.3'
+
+  # Optional dependency required to use drop-in UI
+  pod 'AWSAuthUI', '~> 2.9.3'
+  pod 'AWSUserPoolsSignIn', '~> 2.9.3'
+
+end
