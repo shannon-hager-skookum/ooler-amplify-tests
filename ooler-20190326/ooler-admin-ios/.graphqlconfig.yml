@@ -1,0 +1,16 @@
+projects:
+  ooleradmin:
+    schemaPath: graphql/schema.json
+    includes:
+      - graphql/**/*.graphql
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: swift
+        generatedFileName: API.swift
+        docsFilePath: graphql
+        graphQLApiId: tct35lpohbdmtah4ejnsnsf55q
+      endpoints:
+        prod: >-
+          https://ysp2nbbd3zbb3iqljx3yu6kace.appsync-api.us-east-1.amazonaws.com/graphql
