@@ -1,0 +1,18 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'ooler-admin-ios' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for ooler-admin-ios
+  pod 'AWSAppSync', '2.10.3'
+
+  # Required dependency for AWSMobileClient auth
+  pod 'AWSMobileClient', '~> 2.9.3'
+
+  # Optional dependency required to use drop-in UI
+  pod 'AWSAuthUI', '~> 2.9.3'
+  pod 'AWSUserPoolsSignIn', '~> 2.9.3'
+
+end
