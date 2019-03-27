@@ -20,3 +20,45 @@ subscription OnDeleteTodo {
     description
   }
 }
+subscription OnCreateUser {
+  onCreateUser {
+    email
+    name
+    id
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    email
+    name
+    id
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    email
+    name
+    id
+  }
+}
+subscription OnCreateDevice {
+  onCreateDevice {
+    id
+    deviceOrigionalName
+    macId
+  }
+}
+subscription OnUpdateDevice {
+  onUpdateDevice {
+    id
+    deviceOrigionalName
+    macId
+  }
+}
+subscription OnDeleteDevice {
+  onDeleteDevice {
+    id
+    deviceOrigionalName
+    macId
+  }
+}
