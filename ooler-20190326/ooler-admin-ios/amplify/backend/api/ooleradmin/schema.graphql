@@ -1,10 +1,6 @@
-type Todo @model {
-  id: ID!
-  name: String!
-  description: String
-}
-
-# the following is the graphql for the current ooler backend
+#
+# OOLER database v2 schema.graphql
+#
 
 #####################
 # Models
@@ -14,6 +10,7 @@ type Todo @model {
 type User @model {
   #DeviceList(limit: Int, nextToken: String): DeviceConnection
   #RatingList(limit: Int, nextToken: String): RatingConnection
+  RatingList: [Rating] @connection(name: "UserRatings")
   email: AWSEmail
   name: String!
   id: ID!
@@ -118,7 +115,7 @@ type Rating {
   ratingCount: Int!
   id: ID!
   ratingTime: String!
-#  userId: ID!
+  user: User @connection(name: "UserRatings")
 }
 
 #
