@@ -1,5 +1,5 @@
 projects:
-  envstest0:
+  ooleradmin:
     schemaPath: graphql/schema.json
     includes:
       - graphql/**/*.graphql
@@ -10,7 +10,7 @@ projects:
         codeGenTarget: swift
         generatedFileName: API.swift
         docsFilePath: graphql
-        graphQLApiId: xutp3lh5hvbftejdxcgxv4tsgu
+        graphQLApiId: tct35lpohbdmtah4ejnsnsf55q
       endpoints:
         prod: >-
-          https://stamrzdnsjazjmjt5wdiqx2e24.appsync-api.us-east-1.amazonaws.com/graphql
+          https://ysp2nbbd3zbb3iqljx3yu6kace.appsync-api.us-east-1.amazonaws.com/graphql
