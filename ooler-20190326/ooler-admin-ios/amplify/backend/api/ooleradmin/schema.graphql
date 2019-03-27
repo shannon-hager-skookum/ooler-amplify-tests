@@ -28,14 +28,14 @@ type Device @model {
 }
 
 # DeviceData
-type DeviceData {
+type DeviceData @model {
   id: ID!
   deviceOrigionalName: String!
   deviceUpdatedName: String!
 }
 
 # DeviceDetails
-#type DeviceDetails {
+#type DeviceDetails @model {
 #  deviceDetailsId: String!
 #  deviceId: ID!
 #  deviceName: String
@@ -45,7 +45,7 @@ type DeviceData {
 #}
 
 # Schedule
-type Schedule {
+type Schedule @model {
 #  AdvanceScheduleList(limit: Int, nextToken: String): AdvanceScheduleConnection
   bedTimeInSec: String
 #  bedTimeReminder: Boolean!
@@ -72,7 +72,7 @@ type Schedule {
 }
 
 # AdvancedSchedule
-type AdvanceSchedule {
+type AdvanceSchedule @model {
   id: ID!
   hour: Int!
   min: Int!
@@ -85,7 +85,7 @@ type AdvanceSchedule {
 }
 
 # DeviceLogs
-type DeviceLog {
+type DeviceLog @model {
   description: String!
 #  deviceId: ID!
   logEntry: String!
@@ -94,7 +94,7 @@ type DeviceLog {
 }
 
 # AppUsage
-type AppUsage {
+type AppUsage @model {
   id: ID!
   parameters: String!
   timestamp: String!
@@ -102,7 +102,7 @@ type AppUsage {
 }
 
 # Integrations
-type Integrations {
+type Integrations @model {
   id: ID!
   integrationKey: String!
   parameters: String!
@@ -110,8 +110,8 @@ type Integrations {
 #  userId: String!
 }
 
-# Rating
-type Rating {
+# Rating @model
+type Rating @model {
   ratingCount: Int!
   id: ID!
   ratingTime: String!
