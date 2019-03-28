@@ -1,27 +1,14 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateTodo {
-  onCreateTodo {
-    id
-    name
-    description
-  }
-}
-subscription OnUpdateTodo {
-  onUpdateTodo {
-    id
-    name
-    description
-  }
-}
-subscription OnDeleteTodo {
-  onDeleteTodo {
-    id
-    name
-    description
-  }
-}
 subscription OnCreateUser {
   onCreateUser {
+    RatingList {
+      items {
+        ratingCount
+        id
+        ratingTime
+      }
+      nextToken
+    }
     email
     name
     id
@@ -29,6 +16,14 @@ subscription OnCreateUser {
 }
 subscription OnUpdateUser {
   onUpdateUser {
+    RatingList {
+      items {
+        ratingCount
+        id
+        ratingTime
+      }
+      nextToken
+    }
     email
     name
     id
@@ -36,6 +31,14 @@ subscription OnUpdateUser {
 }
 subscription OnDeleteUser {
   onDeleteUser {
+    RatingList {
+      items {
+        ratingCount
+        id
+        ratingTime
+      }
+      nextToken
+    }
     email
     name
     id
@@ -60,5 +63,251 @@ subscription OnDeleteDevice {
     id
     deviceOrigionalName
     macId
+  }
+}
+subscription OnCreateDeviceData {
+  onCreateDeviceData {
+    id
+    deviceOrigionalName
+    deviceUpdatedName
+  }
+}
+subscription OnUpdateDeviceData {
+  onUpdateDeviceData {
+    id
+    deviceOrigionalName
+    deviceUpdatedName
+  }
+}
+subscription OnDeleteDeviceData {
+  onDeleteDeviceData {
+    id
+    deviceOrigionalName
+    deviceUpdatedName
+  }
+}
+subscription OnCreateSchedule {
+  onCreateSchedule {
+    bedTimeInSec
+    bleDays
+    daysInArray
+    deviceOrigionalName
+    isActive
+    scheduleDsn
+    scheduleId
+    scheduleName
+    scheduleStorageId
+    sleepTimeHour
+    sleepTimeMin
+    sleepTimeUnit
+    storageId
+    temperature
+    temperatureUnit
+    type
+    upTimeHour
+    upTimeInSec
+    upTimeMin
+    upTimeUnit
+    warmAwake
+  }
+}
+subscription OnUpdateSchedule {
+  onUpdateSchedule {
+    bedTimeInSec
+    bleDays
+    daysInArray
+    deviceOrigionalName
+    isActive
+    scheduleDsn
+    scheduleId
+    scheduleName
+    scheduleStorageId
+    sleepTimeHour
+    sleepTimeMin
+    sleepTimeUnit
+    storageId
+    temperature
+    temperatureUnit
+    type
+    upTimeHour
+    upTimeInSec
+    upTimeMin
+    upTimeUnit
+    warmAwake
+  }
+}
+subscription OnDeleteSchedule {
+  onDeleteSchedule {
+    bedTimeInSec
+    bleDays
+    daysInArray
+    deviceOrigionalName
+    isActive
+    scheduleDsn
+    scheduleId
+    scheduleName
+    scheduleStorageId
+    sleepTimeHour
+    sleepTimeMin
+    sleepTimeUnit
+    storageId
+    temperature
+    temperatureUnit
+    type
+    upTimeHour
+    upTimeInSec
+    upTimeMin
+    upTimeUnit
+    warmAwake
+  }
+}
+subscription OnCreateAdvanceSchedule {
+  onCreateAdvanceSchedule {
+    id
+    hour
+    min
+    prefixDate
+    temp
+    tempUnit
+    timeInSec
+    timeUnit
+  }
+}
+subscription OnUpdateAdvanceSchedule {
+  onUpdateAdvanceSchedule {
+    id
+    hour
+    min
+    prefixDate
+    temp
+    tempUnit
+    timeInSec
+    timeUnit
+  }
+}
+subscription OnDeleteAdvanceSchedule {
+  onDeleteAdvanceSchedule {
+    id
+    hour
+    min
+    prefixDate
+    temp
+    tempUnit
+    timeInSec
+    timeUnit
+  }
+}
+subscription OnCreateDeviceLog {
+  onCreateDeviceLog {
+    description
+    logEntry
+    id
+    timeStamp
+  }
+}
+subscription OnUpdateDeviceLog {
+  onUpdateDeviceLog {
+    description
+    logEntry
+    id
+    timeStamp
+  }
+}
+subscription OnDeleteDeviceLog {
+  onDeleteDeviceLog {
+    description
+    logEntry
+    id
+    timeStamp
+  }
+}
+subscription OnCreateAppUsage {
+  onCreateAppUsage {
+    id
+    parameters
+    timestamp
+  }
+}
+subscription OnUpdateAppUsage {
+  onUpdateAppUsage {
+    id
+    parameters
+    timestamp
+  }
+}
+subscription OnDeleteAppUsage {
+  onDeleteAppUsage {
+    id
+    parameters
+    timestamp
+  }
+}
+subscription OnCreateIntegrations {
+  onCreateIntegrations {
+    id
+    integrationKey
+    parameters
+    timestamp
+  }
+}
+subscription OnUpdateIntegrations {
+  onUpdateIntegrations {
+    id
+    integrationKey
+    parameters
+    timestamp
+  }
+}
+subscription OnDeleteIntegrations {
+  onDeleteIntegrations {
+    id
+    integrationKey
+    parameters
+    timestamp
+  }
+}
+subscription OnCreateRating {
+  onCreateRating {
+    ratingCount
+    id
+    ratingTime
+    user {
+      RatingList {
+        nextToken
+      }
+      email
+      name
+      id
+    }
+  }
+}
+subscription OnUpdateRating {
+  onUpdateRating {
+    ratingCount
+    id
+    ratingTime
+    user {
+      RatingList {
+        nextToken
+      }
+      email
+      name
+      id
+    }
+  }
+}
+subscription OnDeleteRating {
+  onDeleteRating {
+    ratingCount
+    id
+    ratingTime
+    user {
+      RatingList {
+        nextToken
+      }
+      email
+      name
+      id
+    }
   }
 }
