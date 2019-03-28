@@ -1,10 +1,17 @@
 # this is an auto generated file. This will be overwritten
 subscription OnCreateUser {
   onCreateUser {
+    DeviceList {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
     RatingList {
       items {
-        ratingCount
         id
+        ratingCount
         ratingTime
       }
       nextToken
@@ -16,10 +23,17 @@ subscription OnCreateUser {
 }
 subscription OnUpdateUser {
   onUpdateUser {
+    DeviceList {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
     RatingList {
       items {
-        ratingCount
         id
+        ratingCount
         ratingTime
       }
       nextToken
@@ -31,10 +45,17 @@ subscription OnUpdateUser {
 }
 subscription OnDeleteUser {
   onDeleteUser {
+    DeviceList {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
     RatingList {
       items {
-        ratingCount
         id
+        ratingCount
         ratingTime
       }
       nextToken
@@ -44,54 +65,275 @@ subscription OnDeleteUser {
     id
   }
 }
+subscription OnCreateDeviceUser {
+  onCreateDeviceUser {
+    id
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    users {
+      DeviceList {
+        nextToken
+      }
+      RatingList {
+        nextToken
+      }
+      email
+      name
+      id
+    }
+    macId
+  }
+}
+subscription OnUpdateDeviceUser {
+  onUpdateDeviceUser {
+    id
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    users {
+      DeviceList {
+        nextToken
+      }
+      RatingList {
+        nextToken
+      }
+      email
+      name
+      id
+    }
+    macId
+  }
+}
+subscription OnDeleteDeviceUser {
+  onDeleteDeviceUser {
+    id
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    users {
+      DeviceList {
+        nextToken
+      }
+      RatingList {
+        nextToken
+      }
+      email
+      name
+      id
+    }
+    macId
+  }
+}
 subscription OnCreateDevice {
   onCreateDevice {
+    deviceUsers {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    ScheduleList {
+      items {
+        bedTimeInSec
+        bleDays
+        daysInArray
+        isActive
+        scheduleDsn
+        scheduleId
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
+      nextToken
+    }
     id
-    deviceOrigionalName
-    macId
+    deviceOriginalName
+    deviceUpdatedName
+    logs {
+      items {
+        id
+        description
+        logEntry
+        timeStamp
+      }
+      nextToken
+    }
   }
 }
 subscription OnUpdateDevice {
   onUpdateDevice {
+    deviceUsers {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    ScheduleList {
+      items {
+        bedTimeInSec
+        bleDays
+        daysInArray
+        isActive
+        scheduleDsn
+        scheduleId
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
+      nextToken
+    }
     id
-    deviceOrigionalName
-    macId
+    deviceOriginalName
+    deviceUpdatedName
+    logs {
+      items {
+        id
+        description
+        logEntry
+        timeStamp
+      }
+      nextToken
+    }
   }
 }
 subscription OnDeleteDevice {
   onDeleteDevice {
+    deviceUsers {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    ScheduleList {
+      items {
+        bedTimeInSec
+        bleDays
+        daysInArray
+        isActive
+        scheduleDsn
+        scheduleId
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
+      nextToken
+    }
     id
-    deviceOrigionalName
-    macId
-  }
-}
-subscription OnCreateDeviceData {
-  onCreateDeviceData {
-    id
-    deviceOrigionalName
+    deviceOriginalName
     deviceUpdatedName
-  }
-}
-subscription OnUpdateDeviceData {
-  onUpdateDeviceData {
-    id
-    deviceOrigionalName
-    deviceUpdatedName
-  }
-}
-subscription OnDeleteDeviceData {
-  onDeleteDeviceData {
-    id
-    deviceOrigionalName
-    deviceUpdatedName
+    logs {
+      items {
+        id
+        description
+        logEntry
+        timeStamp
+      }
+      nextToken
+    }
   }
 }
 subscription OnCreateSchedule {
   onCreateSchedule {
+    AdvanceScheduleList {
+      items {
+        id
+        hour
+        min
+        prefixDate
+        temp
+        tempUnit
+        timeInSec
+        timeUnit
+      }
+      nextToken
+    }
     bedTimeInSec
     bleDays
     daysInArray
-    deviceOrigionalName
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
     isActive
     scheduleDsn
     scheduleId
@@ -113,10 +355,36 @@ subscription OnCreateSchedule {
 }
 subscription OnUpdateSchedule {
   onUpdateSchedule {
+    AdvanceScheduleList {
+      items {
+        id
+        hour
+        min
+        prefixDate
+        temp
+        tempUnit
+        timeInSec
+        timeUnit
+      }
+      nextToken
+    }
     bedTimeInSec
     bleDays
     daysInArray
-    deviceOrigionalName
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
     isActive
     scheduleDsn
     scheduleId
@@ -138,10 +406,36 @@ subscription OnUpdateSchedule {
 }
 subscription OnDeleteSchedule {
   onDeleteSchedule {
+    AdvanceScheduleList {
+      items {
+        id
+        hour
+        min
+        prefixDate
+        temp
+        tempUnit
+        timeInSec
+        timeUnit
+      }
+      nextToken
+    }
     bedTimeInSec
     bleDays
     daysInArray
-    deviceOrigionalName
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
     isActive
     scheduleDsn
     scheduleId
@@ -167,6 +461,36 @@ subscription OnCreateAdvanceSchedule {
     hour
     min
     prefixDate
+    schedule {
+      AdvanceScheduleList {
+        nextToken
+      }
+      bedTimeInSec
+      bleDays
+      daysInArray
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      isActive
+      scheduleDsn
+      scheduleId
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
     temp
     tempUnit
     timeInSec
@@ -179,6 +503,36 @@ subscription OnUpdateAdvanceSchedule {
     hour
     min
     prefixDate
+    schedule {
+      AdvanceScheduleList {
+        nextToken
+      }
+      bedTimeInSec
+      bleDays
+      daysInArray
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      isActive
+      scheduleDsn
+      scheduleId
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
     temp
     tempUnit
     timeInSec
@@ -191,6 +545,36 @@ subscription OnDeleteAdvanceSchedule {
     hour
     min
     prefixDate
+    schedule {
+      AdvanceScheduleList {
+        nextToken
+      }
+      bedTimeInSec
+      bleDays
+      daysInArray
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      isActive
+      scheduleDsn
+      scheduleId
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
     temp
     tempUnit
     timeInSec
@@ -199,79 +583,79 @@ subscription OnDeleteAdvanceSchedule {
 }
 subscription OnCreateDeviceLog {
   onCreateDeviceLog {
-    description
-    logEntry
     id
+    description
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    logEntry
     timeStamp
   }
 }
 subscription OnUpdateDeviceLog {
   onUpdateDeviceLog {
-    description
-    logEntry
     id
+    description
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    logEntry
     timeStamp
   }
 }
 subscription OnDeleteDeviceLog {
   onDeleteDeviceLog {
+    id
     description
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
     logEntry
-    id
     timeStamp
-  }
-}
-subscription OnCreateAppUsage {
-  onCreateAppUsage {
-    id
-    parameters
-    timestamp
-  }
-}
-subscription OnUpdateAppUsage {
-  onUpdateAppUsage {
-    id
-    parameters
-    timestamp
-  }
-}
-subscription OnDeleteAppUsage {
-  onDeleteAppUsage {
-    id
-    parameters
-    timestamp
-  }
-}
-subscription OnCreateIntegrations {
-  onCreateIntegrations {
-    id
-    integrationKey
-    parameters
-    timestamp
-  }
-}
-subscription OnUpdateIntegrations {
-  onUpdateIntegrations {
-    id
-    integrationKey
-    parameters
-    timestamp
-  }
-}
-subscription OnDeleteIntegrations {
-  onDeleteIntegrations {
-    id
-    integrationKey
-    parameters
-    timestamp
   }
 }
 subscription OnCreateRating {
   onCreateRating {
-    ratingCount
     id
+    ratingCount
     ratingTime
     user {
+      DeviceList {
+        nextToken
+      }
       RatingList {
         nextToken
       }
@@ -283,10 +667,13 @@ subscription OnCreateRating {
 }
 subscription OnUpdateRating {
   onUpdateRating {
-    ratingCount
     id
+    ratingCount
     ratingTime
     user {
+      DeviceList {
+        nextToken
+      }
       RatingList {
         nextToken
       }
@@ -298,10 +685,13 @@ subscription OnUpdateRating {
 }
 subscription OnDeleteRating {
   onDeleteRating {
-    ratingCount
     id
+    ratingCount
     ratingTime
     user {
+      DeviceList {
+        nextToken
+      }
       RatingList {
         nextToken
       }

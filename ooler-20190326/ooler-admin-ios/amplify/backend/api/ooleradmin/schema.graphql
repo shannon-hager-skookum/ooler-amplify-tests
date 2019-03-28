@@ -8,31 +8,43 @@
 
 # User
 type User @model {
+  id: ID!
   #DeviceList(limit: Int, nextToken: String): DeviceConnection
+  DeviceList: [DeviceUser] @connection(name: "UserDeviceUsers")
   #RatingList(limit: Int, nextToken: String): RatingConnection
   RatingList: [Rating] @connection(name: "UserRatings")
   email: AWSEmail
   name: String!
+}
+
+type DeviceUser @model {
   id: ID!
+  device: Device! @connection(name: "DeviceDeviceUsers")
+  users: User! @connection(name: "UserDeviceUsers")
+  macId: String!
 }
 
 # Device
 type Device @model {
+  id: ID!
 #  DeviceDataList(limit: Int, nextToken: String): DeviceDataConnection
 #  DeviceDetailsList(limit: Int, nextToken: String): DeviceDetailsConnection
+  deviceUsers: [DeviceUser] @connection(name: "DeviceDeviceUsers")
 #  ScheduleList(limit: Int, nextToken: String): ScheduleConnection
-  id: ID!
-  deviceOrigionalName: String!
-  macId: String!
+  ScheduleList: [Schedule] @connection(name: "DeviceSchedules")
+  deviceOriginalName: String!
+  deviceUpdatedName: String!
+#  macId: String!
 #  userId: ID!
+  logs: [DeviceLog] @connection(name: "DeviceDeviceLogs")
 }
 
 # DeviceData
-type DeviceData @model {
-  id: ID!
-  deviceOrigionalName: String!
-  deviceUpdatedName: String!
-}
+#type DeviceData @model {
+#  id: ID!
+#  deviceOrigionalName: String!
+#  deviceUpdatedName: String!
+#}
 
 # DeviceDetails
 #type DeviceDetails @model {
@@ -46,15 +58,17 @@ type DeviceData @model {
 
 # Schedule
 type Schedule @model {
+  id: ID!
 #  AdvanceScheduleList(limit: Int, nextToken: String): AdvanceScheduleConnection
+  AdvanceScheduleList: [AdvanceSchedule] @connection(name: "ScheduleAdvancedSchedules")
   bedTimeInSec: String
 #  bedTimeReminder: Boolean!
   bleDays: String!
   daysInArray: AWSJSON!
-  deviceOrigionalName: String!
+  # deviceOrigionalName: String!
+  device: Device! @connection(name: "DeviceSchedules")
   isActive: Boolean!
   scheduleDsn: String
-  scheduleId: String!
   scheduleName: String!
   scheduleStorageId: Int
   sleepTimeHour: Int
@@ -77,7 +91,7 @@ type AdvanceSchedule @model {
   hour: Int!
   min: Int!
   prefixDate: String!
-#  scheduleId: ID!
+  schedule: Schedule! @connection(name: "ScheduleAdvancedSchedules")
   temp: Int!
   tempUnit: String!
   timeInSec: String
@@ -86,36 +100,37 @@ type AdvanceSchedule @model {
 
 # DeviceLogs
 type DeviceLog @model {
-  description: String!
-#  deviceId: ID!
-  logEntry: String!
   id: ID!
+  description: String!
+# deviceId: ID!
+  device: Device! @connection(name: "DeviceDeviceLogs")
+  logEntry: String!
   timeStamp: String!
 }
 
 # AppUsage
-type AppUsage @model {
-  id: ID!
-  parameters: String!
-  timestamp: String!
+#type AppUsage @model {
+#  id: ID!
+#  parameters: String!
+#  timestamp: String!
 #  userId: String!
-}
+#}
 
 # Integrations
-type Integrations @model {
-  id: ID!
-  integrationKey: String!
-  parameters: String!
-  timestamp: String!
+#type Integrations @model {
+#  id: ID!
+#  integrationKey: String!
+#  parameters: String!
+#  timestamp: String!
 #  userId: String!
-}
+#}
 
 # Rating @model
 type Rating @model {
-  ratingCount: Int!
   id: ID!
+  ratingCount: Int!
   ratingTime: String!
-  user: User @connection(name: "UserRatings")
+  user: User! @connection(name: "UserRatings")
 }
 
 #

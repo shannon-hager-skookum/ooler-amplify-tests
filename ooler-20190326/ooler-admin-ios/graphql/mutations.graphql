@@ -1,10 +1,17 @@
 # this is an auto generated file. This will be overwritten
 mutation CreateUser($input: CreateUserInput!) {
   createUser(input: $input) {
+    DeviceList {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
     RatingList {
       items {
-        ratingCount
         id
+        ratingCount
         ratingTime
       }
       nextToken
@@ -16,10 +23,17 @@ mutation CreateUser($input: CreateUserInput!) {
 }
 mutation UpdateUser($input: UpdateUserInput!) {
   updateUser(input: $input) {
+    DeviceList {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
     RatingList {
       items {
-        ratingCount
         id
+        ratingCount
         ratingTime
       }
       nextToken
@@ -31,10 +45,17 @@ mutation UpdateUser($input: UpdateUserInput!) {
 }
 mutation DeleteUser($input: DeleteUserInput!) {
   deleteUser(input: $input) {
+    DeviceList {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
     RatingList {
       items {
-        ratingCount
         id
+        ratingCount
         ratingTime
       }
       nextToken
@@ -44,54 +65,275 @@ mutation DeleteUser($input: DeleteUserInput!) {
     id
   }
 }
+mutation CreateDeviceUser($input: CreateDeviceUserInput!) {
+  createDeviceUser(input: $input) {
+    id
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    users {
+      DeviceList {
+        nextToken
+      }
+      RatingList {
+        nextToken
+      }
+      email
+      name
+      id
+    }
+    macId
+  }
+}
+mutation UpdateDeviceUser($input: UpdateDeviceUserInput!) {
+  updateDeviceUser(input: $input) {
+    id
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    users {
+      DeviceList {
+        nextToken
+      }
+      RatingList {
+        nextToken
+      }
+      email
+      name
+      id
+    }
+    macId
+  }
+}
+mutation DeleteDeviceUser($input: DeleteDeviceUserInput!) {
+  deleteDeviceUser(input: $input) {
+    id
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    users {
+      DeviceList {
+        nextToken
+      }
+      RatingList {
+        nextToken
+      }
+      email
+      name
+      id
+    }
+    macId
+  }
+}
 mutation CreateDevice($input: CreateDeviceInput!) {
   createDevice(input: $input) {
+    deviceUsers {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    ScheduleList {
+      items {
+        bedTimeInSec
+        bleDays
+        daysInArray
+        isActive
+        scheduleDsn
+        scheduleId
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
+      nextToken
+    }
     id
-    deviceOrigionalName
-    macId
+    deviceOriginalName
+    deviceUpdatedName
+    logs {
+      items {
+        id
+        description
+        logEntry
+        timeStamp
+      }
+      nextToken
+    }
   }
 }
 mutation UpdateDevice($input: UpdateDeviceInput!) {
   updateDevice(input: $input) {
+    deviceUsers {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    ScheduleList {
+      items {
+        bedTimeInSec
+        bleDays
+        daysInArray
+        isActive
+        scheduleDsn
+        scheduleId
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
+      nextToken
+    }
     id
-    deviceOrigionalName
-    macId
+    deviceOriginalName
+    deviceUpdatedName
+    logs {
+      items {
+        id
+        description
+        logEntry
+        timeStamp
+      }
+      nextToken
+    }
   }
 }
 mutation DeleteDevice($input: DeleteDeviceInput!) {
   deleteDevice(input: $input) {
+    deviceUsers {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    ScheduleList {
+      items {
+        bedTimeInSec
+        bleDays
+        daysInArray
+        isActive
+        scheduleDsn
+        scheduleId
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
+      nextToken
+    }
     id
-    deviceOrigionalName
-    macId
-  }
-}
-mutation CreateDeviceData($input: CreateDeviceDataInput!) {
-  createDeviceData(input: $input) {
-    id
-    deviceOrigionalName
+    deviceOriginalName
     deviceUpdatedName
-  }
-}
-mutation UpdateDeviceData($input: UpdateDeviceDataInput!) {
-  updateDeviceData(input: $input) {
-    id
-    deviceOrigionalName
-    deviceUpdatedName
-  }
-}
-mutation DeleteDeviceData($input: DeleteDeviceDataInput!) {
-  deleteDeviceData(input: $input) {
-    id
-    deviceOrigionalName
-    deviceUpdatedName
+    logs {
+      items {
+        id
+        description
+        logEntry
+        timeStamp
+      }
+      nextToken
+    }
   }
 }
 mutation CreateSchedule($input: CreateScheduleInput!) {
   createSchedule(input: $input) {
+    AdvanceScheduleList {
+      items {
+        id
+        hour
+        min
+        prefixDate
+        temp
+        tempUnit
+        timeInSec
+        timeUnit
+      }
+      nextToken
+    }
     bedTimeInSec
     bleDays
     daysInArray
-    deviceOrigionalName
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
     isActive
     scheduleDsn
     scheduleId
@@ -113,10 +355,36 @@ mutation CreateSchedule($input: CreateScheduleInput!) {
 }
 mutation UpdateSchedule($input: UpdateScheduleInput!) {
   updateSchedule(input: $input) {
+    AdvanceScheduleList {
+      items {
+        id
+        hour
+        min
+        prefixDate
+        temp
+        tempUnit
+        timeInSec
+        timeUnit
+      }
+      nextToken
+    }
     bedTimeInSec
     bleDays
     daysInArray
-    deviceOrigionalName
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
     isActive
     scheduleDsn
     scheduleId
@@ -138,10 +406,36 @@ mutation UpdateSchedule($input: UpdateScheduleInput!) {
 }
 mutation DeleteSchedule($input: DeleteScheduleInput!) {
   deleteSchedule(input: $input) {
+    AdvanceScheduleList {
+      items {
+        id
+        hour
+        min
+        prefixDate
+        temp
+        tempUnit
+        timeInSec
+        timeUnit
+      }
+      nextToken
+    }
     bedTimeInSec
     bleDays
     daysInArray
-    deviceOrigionalName
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
     isActive
     scheduleDsn
     scheduleId
@@ -167,6 +461,36 @@ mutation CreateAdvanceSchedule($input: CreateAdvanceScheduleInput!) {
     hour
     min
     prefixDate
+    schedule {
+      AdvanceScheduleList {
+        nextToken
+      }
+      bedTimeInSec
+      bleDays
+      daysInArray
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      isActive
+      scheduleDsn
+      scheduleId
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
     temp
     tempUnit
     timeInSec
@@ -179,6 +503,36 @@ mutation UpdateAdvanceSchedule($input: UpdateAdvanceScheduleInput!) {
     hour
     min
     prefixDate
+    schedule {
+      AdvanceScheduleList {
+        nextToken
+      }
+      bedTimeInSec
+      bleDays
+      daysInArray
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      isActive
+      scheduleDsn
+      scheduleId
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
     temp
     tempUnit
     timeInSec
@@ -191,6 +545,36 @@ mutation DeleteAdvanceSchedule($input: DeleteAdvanceScheduleInput!) {
     hour
     min
     prefixDate
+    schedule {
+      AdvanceScheduleList {
+        nextToken
+      }
+      bedTimeInSec
+      bleDays
+      daysInArray
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      isActive
+      scheduleDsn
+      scheduleId
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
     temp
     tempUnit
     timeInSec
@@ -199,79 +583,79 @@ mutation DeleteAdvanceSchedule($input: DeleteAdvanceScheduleInput!) {
 }
 mutation CreateDeviceLog($input: CreateDeviceLogInput!) {
   createDeviceLog(input: $input) {
-    description
-    logEntry
     id
+    description
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    logEntry
     timeStamp
   }
 }
 mutation UpdateDeviceLog($input: UpdateDeviceLogInput!) {
   updateDeviceLog(input: $input) {
-    description
-    logEntry
     id
+    description
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    logEntry
     timeStamp
   }
 }
 mutation DeleteDeviceLog($input: DeleteDeviceLogInput!) {
   deleteDeviceLog(input: $input) {
+    id
     description
+    device {
+      deviceUsers {
+        nextToken
+      }
+      ScheduleList {
+        nextToken
+      }
+      id
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
     logEntry
-    id
     timeStamp
-  }
-}
-mutation CreateAppUsage($input: CreateAppUsageInput!) {
-  createAppUsage(input: $input) {
-    id
-    parameters
-    timestamp
-  }
-}
-mutation UpdateAppUsage($input: UpdateAppUsageInput!) {
-  updateAppUsage(input: $input) {
-    id
-    parameters
-    timestamp
-  }
-}
-mutation DeleteAppUsage($input: DeleteAppUsageInput!) {
-  deleteAppUsage(input: $input) {
-    id
-    parameters
-    timestamp
-  }
-}
-mutation CreateIntegrations($input: CreateIntegrationsInput!) {
-  createIntegrations(input: $input) {
-    id
-    integrationKey
-    parameters
-    timestamp
-  }
-}
-mutation UpdateIntegrations($input: UpdateIntegrationsInput!) {
-  updateIntegrations(input: $input) {
-    id
-    integrationKey
-    parameters
-    timestamp
-  }
-}
-mutation DeleteIntegrations($input: DeleteIntegrationsInput!) {
-  deleteIntegrations(input: $input) {
-    id
-    integrationKey
-    parameters
-    timestamp
   }
 }
 mutation CreateRating($input: CreateRatingInput!) {
   createRating(input: $input) {
-    ratingCount
     id
+    ratingCount
     ratingTime
     user {
+      DeviceList {
+        nextToken
+      }
       RatingList {
         nextToken
       }
@@ -283,10 +667,13 @@ mutation CreateRating($input: CreateRatingInput!) {
 }
 mutation UpdateRating($input: UpdateRatingInput!) {
   updateRating(input: $input) {
-    ratingCount
     id
+    ratingCount
     ratingTime
     user {
+      DeviceList {
+        nextToken
+      }
       RatingList {
         nextToken
       }
@@ -298,10 +685,13 @@ mutation UpdateRating($input: UpdateRatingInput!) {
 }
 mutation DeleteRating($input: DeleteRatingInput!) {
   deleteRating(input: $input) {
-    ratingCount
     id
+    ratingCount
     ratingTime
     user {
+      DeviceList {
+        nextToken
+      }
       RatingList {
         nextToken
       }
