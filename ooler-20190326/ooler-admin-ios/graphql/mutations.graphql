@@ -1,9 +1,76 @@
 # this is an auto generated file. This will be overwritten
 mutation CreateUser($input: CreateUserInput!) {
   createUser(input: $input) {
+    id
     DeviceList {
       items {
         id
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
+        users {
+          id
+          DeviceList {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          RatingList {
+            items {
+              id
+              ratingCount
+              ratingTime
+            }
+            nextToken
+          }
+          email
+          name
+        }
         macId
       }
       nextToken
@@ -13,19 +80,105 @@ mutation CreateUser($input: CreateUserInput!) {
         id
         ratingCount
         ratingTime
+        user {
+          id
+          DeviceList {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          RatingList {
+            items {
+              id
+              ratingCount
+              ratingTime
+            }
+            nextToken
+          }
+          email
+          name
+        }
       }
       nextToken
     }
     email
     name
-    id
   }
 }
 mutation UpdateUser($input: UpdateUserInput!) {
   updateUser(input: $input) {
+    id
     DeviceList {
       items {
         id
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
+        users {
+          id
+          DeviceList {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          RatingList {
+            items {
+              id
+              ratingCount
+              ratingTime
+            }
+            nextToken
+          }
+          email
+          name
+        }
         macId
       }
       nextToken
@@ -35,19 +188,105 @@ mutation UpdateUser($input: UpdateUserInput!) {
         id
         ratingCount
         ratingTime
+        user {
+          id
+          DeviceList {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          RatingList {
+            items {
+              id
+              ratingCount
+              ratingTime
+            }
+            nextToken
+          }
+          email
+          name
+        }
       }
       nextToken
     }
     email
     name
-    id
   }
 }
 mutation DeleteUser($input: DeleteUserInput!) {
   deleteUser(input: $input) {
+    id
     DeviceList {
       items {
         id
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
+        users {
+          id
+          DeviceList {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          RatingList {
+            items {
+              id
+              ratingCount
+              ratingTime
+            }
+            nextToken
+          }
+          email
+          name
+        }
         macId
       }
       nextToken
@@ -57,41 +296,203 @@ mutation DeleteUser($input: DeleteUserInput!) {
         id
         ratingCount
         ratingTime
+        user {
+          id
+          DeviceList {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          RatingList {
+            items {
+              id
+              ratingCount
+              ratingTime
+            }
+            nextToken
+          }
+          email
+          name
+        }
       }
       nextToken
     }
     email
     name
-    id
   }
 }
 mutation CreateDeviceUser($input: CreateDeviceUserInput!) {
   createDeviceUser(input: $input) {
     id
     device {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
     users {
+      id
       DeviceList {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       RatingList {
+        items {
+          id
+          ratingCount
+          ratingTime
+          user {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+        }
         nextToken
       }
       email
       name
-      id
     }
     macId
   }
@@ -100,29 +501,172 @@ mutation UpdateDeviceUser($input: UpdateDeviceUserInput!) {
   updateDeviceUser(input: $input) {
     id
     device {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
     users {
+      id
       DeviceList {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       RatingList {
+        items {
+          id
+          ratingCount
+          ratingTime
+          user {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+        }
         nextToken
       }
       email
       name
-      id
     }
     macId
   }
@@ -131,50 +675,341 @@ mutation DeleteDeviceUser($input: DeleteDeviceUserInput!) {
   deleteDeviceUser(input: $input) {
     id
     device {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
     users {
+      id
       DeviceList {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       RatingList {
+        items {
+          id
+          ratingCount
+          ratingTime
+          user {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+        }
         nextToken
       }
       email
       name
-      id
     }
     macId
   }
 }
 mutation CreateDevice($input: CreateDeviceInput!) {
   createDevice(input: $input) {
+    id
     deviceUsers {
       items {
         id
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
+        users {
+          id
+          DeviceList {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          RatingList {
+            items {
+              id
+              ratingCount
+              ratingTime
+            }
+            nextToken
+          }
+          email
+          name
+        }
         macId
       }
       nextToken
     }
     ScheduleList {
       items {
+        id
+        AdvanceScheduleList {
+          items {
+            id
+            hour
+            min
+            prefixDate
+            schedule {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            temp
+            tempUnit
+            timeInSec
+            timeUnit
+          }
+          nextToken
+        }
         bedTimeInSec
         bleDays
         daysInArray
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
         isActive
         scheduleDsn
-        scheduleId
         scheduleName
         scheduleStorageId
         sleepTimeHour
@@ -192,13 +1027,58 @@ mutation CreateDevice($input: CreateDeviceInput!) {
       }
       nextToken
     }
-    id
     deviceOriginalName
     deviceUpdatedName
     logs {
       items {
         id
         description
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
         logEntry
         timeStamp
       }
@@ -208,21 +1088,169 @@ mutation CreateDevice($input: CreateDeviceInput!) {
 }
 mutation UpdateDevice($input: UpdateDeviceInput!) {
   updateDevice(input: $input) {
+    id
     deviceUsers {
       items {
         id
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
+        users {
+          id
+          DeviceList {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          RatingList {
+            items {
+              id
+              ratingCount
+              ratingTime
+            }
+            nextToken
+          }
+          email
+          name
+        }
         macId
       }
       nextToken
     }
     ScheduleList {
       items {
+        id
+        AdvanceScheduleList {
+          items {
+            id
+            hour
+            min
+            prefixDate
+            schedule {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            temp
+            tempUnit
+            timeInSec
+            timeUnit
+          }
+          nextToken
+        }
         bedTimeInSec
         bleDays
         daysInArray
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
         isActive
         scheduleDsn
-        scheduleId
         scheduleName
         scheduleStorageId
         sleepTimeHour
@@ -240,13 +1268,58 @@ mutation UpdateDevice($input: UpdateDeviceInput!) {
       }
       nextToken
     }
-    id
     deviceOriginalName
     deviceUpdatedName
     logs {
       items {
         id
         description
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
         logEntry
         timeStamp
       }
@@ -256,21 +1329,169 @@ mutation UpdateDevice($input: UpdateDeviceInput!) {
 }
 mutation DeleteDevice($input: DeleteDeviceInput!) {
   deleteDevice(input: $input) {
+    id
     deviceUsers {
       items {
         id
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
+        users {
+          id
+          DeviceList {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          RatingList {
+            items {
+              id
+              ratingCount
+              ratingTime
+            }
+            nextToken
+          }
+          email
+          name
+        }
         macId
       }
       nextToken
     }
     ScheduleList {
       items {
+        id
+        AdvanceScheduleList {
+          items {
+            id
+            hour
+            min
+            prefixDate
+            schedule {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            temp
+            tempUnit
+            timeInSec
+            timeUnit
+          }
+          nextToken
+        }
         bedTimeInSec
         bleDays
         daysInArray
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
         isActive
         scheduleDsn
-        scheduleId
         scheduleName
         scheduleStorageId
         sleepTimeHour
@@ -288,13 +1509,58 @@ mutation DeleteDevice($input: DeleteDeviceInput!) {
       }
       nextToken
     }
-    id
     deviceOriginalName
     deviceUpdatedName
     logs {
       items {
         id
         description
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
         logEntry
         timeStamp
       }
@@ -304,12 +1570,62 @@ mutation DeleteDevice($input: DeleteDeviceInput!) {
 }
 mutation CreateSchedule($input: CreateScheduleInput!) {
   createSchedule(input: $input) {
+    id
     AdvanceScheduleList {
       items {
         id
         hour
         min
         prefixDate
+        schedule {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         temp
         tempUnit
         timeInSec
@@ -321,22 +1637,119 @@ mutation CreateSchedule($input: CreateScheduleInput!) {
     bleDays
     daysInArray
     device {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
     isActive
     scheduleDsn
-    scheduleId
     scheduleName
     scheduleStorageId
     sleepTimeHour
@@ -355,12 +1768,62 @@ mutation CreateSchedule($input: CreateScheduleInput!) {
 }
 mutation UpdateSchedule($input: UpdateScheduleInput!) {
   updateSchedule(input: $input) {
+    id
     AdvanceScheduleList {
       items {
         id
         hour
         min
         prefixDate
+        schedule {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         temp
         tempUnit
         timeInSec
@@ -372,22 +1835,119 @@ mutation UpdateSchedule($input: UpdateScheduleInput!) {
     bleDays
     daysInArray
     device {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
     isActive
     scheduleDsn
-    scheduleId
     scheduleName
     scheduleStorageId
     sleepTimeHour
@@ -406,12 +1966,62 @@ mutation UpdateSchedule($input: UpdateScheduleInput!) {
 }
 mutation DeleteSchedule($input: DeleteScheduleInput!) {
   deleteSchedule(input: $input) {
+    id
     AdvanceScheduleList {
       items {
         id
         hour
         min
         prefixDate
+        schedule {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         temp
         tempUnit
         timeInSec
@@ -423,22 +2033,119 @@ mutation DeleteSchedule($input: DeleteScheduleInput!) {
     bleDays
     daysInArray
     device {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
     isActive
     scheduleDsn
-    scheduleId
     scheduleName
     scheduleStorageId
     sleepTimeHour
@@ -462,7 +2169,48 @@ mutation CreateAdvanceSchedule($input: CreateAdvanceScheduleInput!) {
     min
     prefixDate
     schedule {
+      id
       AdvanceScheduleList {
+        items {
+          id
+          hour
+          min
+          prefixDate
+          schedule {
+            id
+            AdvanceScheduleList {
+              nextToken
+            }
+            bedTimeInSec
+            bleDays
+            daysInArray
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            isActive
+            scheduleDsn
+            scheduleName
+            scheduleStorageId
+            sleepTimeHour
+            sleepTimeMin
+            sleepTimeUnit
+            storageId
+            temperature
+            temperatureUnit
+            type
+            upTimeHour
+            upTimeInSec
+            upTimeMin
+            upTimeUnit
+            warmAwake
+          }
+          temp
+          tempUnit
+          timeInSec
+          timeUnit
+        }
         nextToken
       }
       bedTimeInSec
@@ -470,12 +2218,75 @@ mutation CreateAdvanceSchedule($input: CreateAdvanceScheduleInput!) {
       daysInArray
       device {
         id
+        deviceUsers {
+          items {
+            id
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            users {
+              id
+              email
+              name
+            }
+            macId
+          }
+          nextToken
+        }
+        ScheduleList {
+          items {
+            id
+            AdvanceScheduleList {
+              nextToken
+            }
+            bedTimeInSec
+            bleDays
+            daysInArray
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            isActive
+            scheduleDsn
+            scheduleName
+            scheduleStorageId
+            sleepTimeHour
+            sleepTimeMin
+            sleepTimeUnit
+            storageId
+            temperature
+            temperatureUnit
+            type
+            upTimeHour
+            upTimeInSec
+            upTimeMin
+            upTimeUnit
+            warmAwake
+          }
+          nextToken
+        }
         deviceOriginalName
         deviceUpdatedName
+        logs {
+          items {
+            id
+            description
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            logEntry
+            timeStamp
+          }
+          nextToken
+        }
       }
       isActive
       scheduleDsn
-      scheduleId
       scheduleName
       scheduleStorageId
       sleepTimeHour
@@ -504,7 +2315,48 @@ mutation UpdateAdvanceSchedule($input: UpdateAdvanceScheduleInput!) {
     min
     prefixDate
     schedule {
+      id
       AdvanceScheduleList {
+        items {
+          id
+          hour
+          min
+          prefixDate
+          schedule {
+            id
+            AdvanceScheduleList {
+              nextToken
+            }
+            bedTimeInSec
+            bleDays
+            daysInArray
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            isActive
+            scheduleDsn
+            scheduleName
+            scheduleStorageId
+            sleepTimeHour
+            sleepTimeMin
+            sleepTimeUnit
+            storageId
+            temperature
+            temperatureUnit
+            type
+            upTimeHour
+            upTimeInSec
+            upTimeMin
+            upTimeUnit
+            warmAwake
+          }
+          temp
+          tempUnit
+          timeInSec
+          timeUnit
+        }
         nextToken
       }
       bedTimeInSec
@@ -512,12 +2364,75 @@ mutation UpdateAdvanceSchedule($input: UpdateAdvanceScheduleInput!) {
       daysInArray
       device {
         id
+        deviceUsers {
+          items {
+            id
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            users {
+              id
+              email
+              name
+            }
+            macId
+          }
+          nextToken
+        }
+        ScheduleList {
+          items {
+            id
+            AdvanceScheduleList {
+              nextToken
+            }
+            bedTimeInSec
+            bleDays
+            daysInArray
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            isActive
+            scheduleDsn
+            scheduleName
+            scheduleStorageId
+            sleepTimeHour
+            sleepTimeMin
+            sleepTimeUnit
+            storageId
+            temperature
+            temperatureUnit
+            type
+            upTimeHour
+            upTimeInSec
+            upTimeMin
+            upTimeUnit
+            warmAwake
+          }
+          nextToken
+        }
         deviceOriginalName
         deviceUpdatedName
+        logs {
+          items {
+            id
+            description
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            logEntry
+            timeStamp
+          }
+          nextToken
+        }
       }
       isActive
       scheduleDsn
-      scheduleId
       scheduleName
       scheduleStorageId
       sleepTimeHour
@@ -546,7 +2461,48 @@ mutation DeleteAdvanceSchedule($input: DeleteAdvanceScheduleInput!) {
     min
     prefixDate
     schedule {
+      id
       AdvanceScheduleList {
+        items {
+          id
+          hour
+          min
+          prefixDate
+          schedule {
+            id
+            AdvanceScheduleList {
+              nextToken
+            }
+            bedTimeInSec
+            bleDays
+            daysInArray
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            isActive
+            scheduleDsn
+            scheduleName
+            scheduleStorageId
+            sleepTimeHour
+            sleepTimeMin
+            sleepTimeUnit
+            storageId
+            temperature
+            temperatureUnit
+            type
+            upTimeHour
+            upTimeInSec
+            upTimeMin
+            upTimeUnit
+            warmAwake
+          }
+          temp
+          tempUnit
+          timeInSec
+          timeUnit
+        }
         nextToken
       }
       bedTimeInSec
@@ -554,12 +2510,75 @@ mutation DeleteAdvanceSchedule($input: DeleteAdvanceScheduleInput!) {
       daysInArray
       device {
         id
+        deviceUsers {
+          items {
+            id
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            users {
+              id
+              email
+              name
+            }
+            macId
+          }
+          nextToken
+        }
+        ScheduleList {
+          items {
+            id
+            AdvanceScheduleList {
+              nextToken
+            }
+            bedTimeInSec
+            bleDays
+            daysInArray
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            isActive
+            scheduleDsn
+            scheduleName
+            scheduleStorageId
+            sleepTimeHour
+            sleepTimeMin
+            sleepTimeUnit
+            storageId
+            temperature
+            temperatureUnit
+            type
+            upTimeHour
+            upTimeInSec
+            upTimeMin
+            upTimeUnit
+            warmAwake
+          }
+          nextToken
+        }
         deviceOriginalName
         deviceUpdatedName
+        logs {
+          items {
+            id
+            description
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            logEntry
+            timeStamp
+          }
+          nextToken
+        }
       }
       isActive
       scheduleDsn
-      scheduleId
       scheduleName
       scheduleStorageId
       sleepTimeHour
@@ -586,16 +2605,114 @@ mutation CreateDeviceLog($input: CreateDeviceLogInput!) {
     id
     description
     device {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
@@ -608,16 +2725,114 @@ mutation UpdateDeviceLog($input: UpdateDeviceLogInput!) {
     id
     description
     device {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
@@ -630,16 +2845,114 @@ mutation DeleteDeviceLog($input: DeleteDeviceLogInput!) {
     id
     description
     device {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
@@ -653,15 +2966,60 @@ mutation CreateRating($input: CreateRatingInput!) {
     ratingCount
     ratingTime
     user {
+      id
       DeviceList {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       RatingList {
+        items {
+          id
+          ratingCount
+          ratingTime
+          user {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+        }
         nextToken
       }
       email
       name
-      id
     }
   }
 }
@@ -671,15 +3029,60 @@ mutation UpdateRating($input: UpdateRatingInput!) {
     ratingCount
     ratingTime
     user {
+      id
       DeviceList {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       RatingList {
+        items {
+          id
+          ratingCount
+          ratingTime
+          user {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+        }
         nextToken
       }
       email
       name
-      id
     }
   }
 }
@@ -689,15 +3092,60 @@ mutation DeleteRating($input: DeleteRatingInput!) {
     ratingCount
     ratingTime
     user {
+      id
       DeviceList {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       RatingList {
+        items {
+          id
+          ratingCount
+          ratingTime
+          user {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+        }
         nextToken
       }
       email
       name
-      id
     }
   }
 }

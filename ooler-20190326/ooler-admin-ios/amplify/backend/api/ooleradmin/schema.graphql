@@ -133,6 +133,17 @@ type Rating @model {
   user: User! @connection(name: "UserRatings")
 }
 
+type DeviceUserConnection {
+  items: [DeviceUser]
+  nextToken: String
+}
+
+type Query {
+  devicesForUser(userId: ID!): DeviceUserConnection
+#  devicesForMacId(macId: String!): DeviceUserConnection
+#  devicesByOriginalName(deviceOriginalName: String!): DeviceUserConnection
+}
+
 #
 ##
 ###

@@ -1,9 +1,76 @@
 # this is an auto generated file. This will be overwritten
 query GetUser($id: ID!) {
   getUser(id: $id) {
+    id
     DeviceList {
       items {
         id
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
+        users {
+          id
+          DeviceList {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          RatingList {
+            items {
+              id
+              ratingCount
+              ratingTime
+            }
+            nextToken
+          }
+          email
+          name
+        }
         macId
       }
       nextToken
@@ -13,12 +80,31 @@ query GetUser($id: ID!) {
         id
         ratingCount
         ratingTime
+        user {
+          id
+          DeviceList {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          RatingList {
+            items {
+              id
+              ratingCount
+              ratingTime
+            }
+            nextToken
+          }
+          email
+          name
+        }
       }
       nextToken
     }
     email
     name
-    id
   }
 }
 query ListUsers(
@@ -28,15 +114,60 @@ query ListUsers(
 ) {
   listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      id
       DeviceList {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       RatingList {
+        items {
+          id
+          ratingCount
+          ratingTime
+          user {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+        }
         nextToken
       }
       email
       name
-      id
     }
     nextToken
   }
@@ -45,29 +176,172 @@ query GetDeviceUser($id: ID!) {
   getDeviceUser(id: $id) {
     id
     device {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
     users {
+      id
       DeviceList {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       RatingList {
+        items {
+          id
+          ratingCount
+          ratingTime
+          user {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+        }
         nextToken
       }
       email
       name
-      id
     }
     macId
   }
@@ -82,13 +356,107 @@ query ListDeviceUsers(
       id
       device {
         id
+        deviceUsers {
+          items {
+            id
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            users {
+              id
+              email
+              name
+            }
+            macId
+          }
+          nextToken
+        }
+        ScheduleList {
+          items {
+            id
+            AdvanceScheduleList {
+              nextToken
+            }
+            bedTimeInSec
+            bleDays
+            daysInArray
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            isActive
+            scheduleDsn
+            scheduleName
+            scheduleStorageId
+            sleepTimeHour
+            sleepTimeMin
+            sleepTimeUnit
+            storageId
+            temperature
+            temperatureUnit
+            type
+            upTimeHour
+            upTimeInSec
+            upTimeMin
+            upTimeUnit
+            warmAwake
+          }
+          nextToken
+        }
         deviceOriginalName
         deviceUpdatedName
+        logs {
+          items {
+            id
+            description
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            logEntry
+            timeStamp
+          }
+          nextToken
+        }
       }
       users {
+        id
+        DeviceList {
+          items {
+            id
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            users {
+              id
+              email
+              name
+            }
+            macId
+          }
+          nextToken
+        }
+        RatingList {
+          items {
+            id
+            ratingCount
+            ratingTime
+            user {
+              id
+              email
+              name
+            }
+          }
+          nextToken
+        }
         email
         name
-        id
       }
       macId
     }
@@ -97,21 +465,169 @@ query ListDeviceUsers(
 }
 query GetDevice($id: ID!) {
   getDevice(id: $id) {
+    id
     deviceUsers {
       items {
         id
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
+        users {
+          id
+          DeviceList {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          RatingList {
+            items {
+              id
+              ratingCount
+              ratingTime
+            }
+            nextToken
+          }
+          email
+          name
+        }
         macId
       }
       nextToken
     }
     ScheduleList {
       items {
+        id
+        AdvanceScheduleList {
+          items {
+            id
+            hour
+            min
+            prefixDate
+            schedule {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            temp
+            tempUnit
+            timeInSec
+            timeUnit
+          }
+          nextToken
+        }
         bedTimeInSec
         bleDays
         daysInArray
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
         isActive
         scheduleDsn
-        scheduleId
         scheduleName
         scheduleStorageId
         sleepTimeHour
@@ -129,13 +645,58 @@ query GetDevice($id: ID!) {
       }
       nextToken
     }
-    id
     deviceOriginalName
     deviceUpdatedName
     logs {
       items {
         id
         description
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
         logEntry
         timeStamp
       }
@@ -150,16 +711,114 @@ query ListDevices(
 ) {
   listDevices(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
@@ -168,12 +827,62 @@ query ListDevices(
 }
 query GetSchedule($id: ID!) {
   getSchedule(id: $id) {
+    id
     AdvanceScheduleList {
       items {
         id
         hour
         min
         prefixDate
+        schedule {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         temp
         tempUnit
         timeInSec
@@ -185,22 +894,119 @@ query GetSchedule($id: ID!) {
     bleDays
     daysInArray
     device {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
     isActive
     scheduleDsn
-    scheduleId
     scheduleName
     scheduleStorageId
     sleepTimeHour
@@ -224,7 +1030,48 @@ query ListSchedules(
 ) {
   listSchedules(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      id
       AdvanceScheduleList {
+        items {
+          id
+          hour
+          min
+          prefixDate
+          schedule {
+            id
+            AdvanceScheduleList {
+              nextToken
+            }
+            bedTimeInSec
+            bleDays
+            daysInArray
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            isActive
+            scheduleDsn
+            scheduleName
+            scheduleStorageId
+            sleepTimeHour
+            sleepTimeMin
+            sleepTimeUnit
+            storageId
+            temperature
+            temperatureUnit
+            type
+            upTimeHour
+            upTimeInSec
+            upTimeMin
+            upTimeUnit
+            warmAwake
+          }
+          temp
+          tempUnit
+          timeInSec
+          timeUnit
+        }
         nextToken
       }
       bedTimeInSec
@@ -232,12 +1079,75 @@ query ListSchedules(
       daysInArray
       device {
         id
+        deviceUsers {
+          items {
+            id
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            users {
+              id
+              email
+              name
+            }
+            macId
+          }
+          nextToken
+        }
+        ScheduleList {
+          items {
+            id
+            AdvanceScheduleList {
+              nextToken
+            }
+            bedTimeInSec
+            bleDays
+            daysInArray
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            isActive
+            scheduleDsn
+            scheduleName
+            scheduleStorageId
+            sleepTimeHour
+            sleepTimeMin
+            sleepTimeUnit
+            storageId
+            temperature
+            temperatureUnit
+            type
+            upTimeHour
+            upTimeInSec
+            upTimeMin
+            upTimeUnit
+            warmAwake
+          }
+          nextToken
+        }
         deviceOriginalName
         deviceUpdatedName
+        logs {
+          items {
+            id
+            description
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            logEntry
+            timeStamp
+          }
+          nextToken
+        }
       }
       isActive
       scheduleDsn
-      scheduleId
       scheduleName
       scheduleStorageId
       sleepTimeHour
@@ -263,7 +1173,48 @@ query GetAdvanceSchedule($id: ID!) {
     min
     prefixDate
     schedule {
+      id
       AdvanceScheduleList {
+        items {
+          id
+          hour
+          min
+          prefixDate
+          schedule {
+            id
+            AdvanceScheduleList {
+              nextToken
+            }
+            bedTimeInSec
+            bleDays
+            daysInArray
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            isActive
+            scheduleDsn
+            scheduleName
+            scheduleStorageId
+            sleepTimeHour
+            sleepTimeMin
+            sleepTimeUnit
+            storageId
+            temperature
+            temperatureUnit
+            type
+            upTimeHour
+            upTimeInSec
+            upTimeMin
+            upTimeUnit
+            warmAwake
+          }
+          temp
+          tempUnit
+          timeInSec
+          timeUnit
+        }
         nextToken
       }
       bedTimeInSec
@@ -271,12 +1222,75 @@ query GetAdvanceSchedule($id: ID!) {
       daysInArray
       device {
         id
+        deviceUsers {
+          items {
+            id
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            users {
+              id
+              email
+              name
+            }
+            macId
+          }
+          nextToken
+        }
+        ScheduleList {
+          items {
+            id
+            AdvanceScheduleList {
+              nextToken
+            }
+            bedTimeInSec
+            bleDays
+            daysInArray
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            isActive
+            scheduleDsn
+            scheduleName
+            scheduleStorageId
+            sleepTimeHour
+            sleepTimeMin
+            sleepTimeUnit
+            storageId
+            temperature
+            temperatureUnit
+            type
+            upTimeHour
+            upTimeInSec
+            upTimeMin
+            upTimeUnit
+            warmAwake
+          }
+          nextToken
+        }
         deviceOriginalName
         deviceUpdatedName
+        logs {
+          items {
+            id
+            description
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            logEntry
+            timeStamp
+          }
+          nextToken
+        }
       }
       isActive
       scheduleDsn
-      scheduleId
       scheduleName
       scheduleStorageId
       sleepTimeHour
@@ -310,12 +1324,93 @@ query ListAdvanceSchedules(
       min
       prefixDate
       schedule {
+        id
+        AdvanceScheduleList {
+          items {
+            id
+            hour
+            min
+            prefixDate
+            schedule {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            temp
+            tempUnit
+            timeInSec
+            timeUnit
+          }
+          nextToken
+        }
         bedTimeInSec
         bleDays
         daysInArray
+        device {
+          id
+          deviceUsers {
+            items {
+              id
+              macId
+            }
+            nextToken
+          }
+          ScheduleList {
+            items {
+              id
+              bedTimeInSec
+              bleDays
+              daysInArray
+              isActive
+              scheduleDsn
+              scheduleName
+              scheduleStorageId
+              sleepTimeHour
+              sleepTimeMin
+              sleepTimeUnit
+              storageId
+              temperature
+              temperatureUnit
+              type
+              upTimeHour
+              upTimeInSec
+              upTimeMin
+              upTimeUnit
+              warmAwake
+            }
+            nextToken
+          }
+          deviceOriginalName
+          deviceUpdatedName
+          logs {
+            items {
+              id
+              description
+              logEntry
+              timeStamp
+            }
+            nextToken
+          }
+        }
         isActive
         scheduleDsn
-        scheduleId
         scheduleName
         scheduleStorageId
         sleepTimeHour
@@ -344,16 +1439,114 @@ query GetDeviceLog($id: ID!) {
     id
     description
     device {
+      id
       deviceUsers {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       ScheduleList {
+        items {
+          id
+          AdvanceScheduleList {
+            items {
+              id
+              hour
+              min
+              prefixDate
+              temp
+              tempUnit
+              timeInSec
+              timeUnit
+            }
+            nextToken
+          }
+          bedTimeInSec
+          bleDays
+          daysInArray
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          isActive
+          scheduleDsn
+          scheduleName
+          scheduleStorageId
+          sleepTimeHour
+          sleepTimeMin
+          sleepTimeUnit
+          storageId
+          temperature
+          temperatureUnit
+          type
+          upTimeHour
+          upTimeInSec
+          upTimeMin
+          upTimeUnit
+          warmAwake
+        }
         nextToken
       }
-      id
       deviceOriginalName
       deviceUpdatedName
       logs {
+        items {
+          id
+          description
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          logEntry
+          timeStamp
+        }
         nextToken
       }
     }
@@ -372,8 +1565,72 @@ query ListDeviceLogs(
       description
       device {
         id
+        deviceUsers {
+          items {
+            id
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            users {
+              id
+              email
+              name
+            }
+            macId
+          }
+          nextToken
+        }
+        ScheduleList {
+          items {
+            id
+            AdvanceScheduleList {
+              nextToken
+            }
+            bedTimeInSec
+            bleDays
+            daysInArray
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            isActive
+            scheduleDsn
+            scheduleName
+            scheduleStorageId
+            sleepTimeHour
+            sleepTimeMin
+            sleepTimeUnit
+            storageId
+            temperature
+            temperatureUnit
+            type
+            upTimeHour
+            upTimeInSec
+            upTimeMin
+            upTimeUnit
+            warmAwake
+          }
+          nextToken
+        }
         deviceOriginalName
         deviceUpdatedName
+        logs {
+          items {
+            id
+            description
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            logEntry
+            timeStamp
+          }
+          nextToken
+        }
       }
       logEntry
       timeStamp
@@ -387,15 +1644,60 @@ query GetRating($id: ID!) {
     ratingCount
     ratingTime
     user {
+      id
       DeviceList {
+        items {
+          id
+          device {
+            id
+            deviceUsers {
+              nextToken
+            }
+            ScheduleList {
+              nextToken
+            }
+            deviceOriginalName
+            deviceUpdatedName
+            logs {
+              nextToken
+            }
+          }
+          users {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+          macId
+        }
         nextToken
       }
       RatingList {
+        items {
+          id
+          ratingCount
+          ratingTime
+          user {
+            id
+            DeviceList {
+              nextToken
+            }
+            RatingList {
+              nextToken
+            }
+            email
+            name
+          }
+        }
         nextToken
       }
       email
       name
-      id
     }
   }
 }
@@ -410,9 +1712,39 @@ query ListRatings(
       ratingCount
       ratingTime
       user {
+        id
+        DeviceList {
+          items {
+            id
+            device {
+              id
+              deviceOriginalName
+              deviceUpdatedName
+            }
+            users {
+              id
+              email
+              name
+            }
+            macId
+          }
+          nextToken
+        }
+        RatingList {
+          items {
+            id
+            ratingCount
+            ratingTime
+            user {
+              id
+              email
+              name
+            }
+          }
+          nextToken
+        }
         email
         name
-        id
       }
     }
     nextToken
