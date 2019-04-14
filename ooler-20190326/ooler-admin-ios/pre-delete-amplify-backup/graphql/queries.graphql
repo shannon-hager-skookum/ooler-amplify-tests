@@ -1,0 +1,439 @@
+# this is an auto generated file. This will be overwritten
+query DevicesForUser($userId: ID!) {
+  devicesForUser(userId: $userId) {
+    items {
+      id
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      users {
+        id
+        email
+        name
+      }
+      macId
+    }
+    nextToken
+  }
+}
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    devices {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        ratingCount
+        ratingTime
+      }
+      nextToken
+    }
+    email
+    name
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      email
+      name
+    }
+    nextToken
+  }
+}
+query GetDeviceUser($id: ID!) {
+  getDeviceUser(id: $id) {
+    id
+    device {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    users {
+      id
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      email
+      name
+    }
+    macId
+  }
+}
+query ListDeviceUsers(
+  $filter: ModelDeviceUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listDeviceUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      users {
+        id
+        email
+        name
+      }
+      macId
+    }
+    nextToken
+  }
+}
+query GetDevice($id: ID!) {
+  getDevice(id: $id) {
+    id
+    deviceUsers {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    schedules {
+      items {
+        id
+        bedTimeInSec
+        bleDays
+        daysInArray
+        isActive
+        scheduleDsn
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
+      nextToken
+    }
+    deviceOriginalName
+    deviceUpdatedName
+    logs {
+      items {
+        id
+        description
+        logEntry
+        timeStamp
+      }
+      nextToken
+    }
+  }
+}
+query ListDevices(
+  $filter: ModelDeviceFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listDevices(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+query GetSchedule($id: ID!) {
+  getSchedule(id: $id) {
+    id
+    advanceSchedules {
+      items {
+        id
+        hour
+        min
+        prefixDate
+        temp
+        tempUnit
+        timeInSec
+        timeUnit
+      }
+      nextToken
+    }
+    bedTimeInSec
+    bleDays
+    daysInArray
+    device {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    isActive
+    scheduleDsn
+    scheduleName
+    scheduleStorageId
+    sleepTimeHour
+    sleepTimeMin
+    sleepTimeUnit
+    storageId
+    temperature
+    temperatureUnit
+    type
+    upTimeHour
+    upTimeInSec
+    upTimeMin
+    upTimeUnit
+    warmAwake
+  }
+}
+query ListSchedules(
+  $filter: ModelScheduleFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSchedules(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      advanceSchedules {
+        nextToken
+      }
+      bedTimeInSec
+      bleDays
+      daysInArray
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      isActive
+      scheduleDsn
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
+    nextToken
+  }
+}
+query GetAdvanceSchedule($id: ID!) {
+  getAdvanceSchedule(id: $id) {
+    id
+    hour
+    min
+    prefixDate
+    schedule {
+      id
+      advanceSchedules {
+        nextToken
+      }
+      bedTimeInSec
+      bleDays
+      daysInArray
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      isActive
+      scheduleDsn
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
+    temp
+    tempUnit
+    timeInSec
+    timeUnit
+  }
+}
+query ListAdvanceSchedules(
+  $filter: ModelAdvanceScheduleFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAdvanceSchedules(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      hour
+      min
+      prefixDate
+      schedule {
+        id
+        bedTimeInSec
+        bleDays
+        daysInArray
+        isActive
+        scheduleDsn
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
+      temp
+      tempUnit
+      timeInSec
+      timeUnit
+    }
+    nextToken
+  }
+}
+query GetDeviceLog($id: ID!) {
+  getDeviceLog(id: $id) {
+    id
+    description
+    device {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    logEntry
+    timeStamp
+  }
+}
+query ListDeviceLogs(
+  $filter: ModelDeviceLogFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listDeviceLogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      description
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      logEntry
+      timeStamp
+    }
+    nextToken
+  }
+}
+query GetRating($id: ID!) {
+  getRating(id: $id) {
+    id
+    ratingCount
+    ratingTime
+    user {
+      id
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      email
+      name
+    }
+  }
+}
+query ListRatings(
+  $filter: ModelRatingFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listRatings(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      ratingCount
+      ratingTime
+      user {
+        id
+        email
+        name
+      }
+    }
+    nextToken
+  }
+}

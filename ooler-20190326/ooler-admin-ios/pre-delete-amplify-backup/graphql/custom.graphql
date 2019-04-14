@@ -1,0 +1,27 @@
+#query GetAllDevicesForUser($userId: ID!) {
+#  devicesForUser(userId: $userId) {
+#    items {
+#      id
+#      device {
+#        ...minimalDevice
+#      }
+#      macId
+#    }
+#  }
+#}
+
+#fragment minimalDevice on Device {
+#  id
+#  deviceOriginalName
+#  deviceUpdatedName
+#  deviceUsers {
+#    items {
+#      id
+#      macId
+#      user {
+#        id
+#        name
+#      }
+#    }
+#  }
+#}

@@ -1,0 +1,703 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateUser($input: CreateUserInput!) {
+  createUser(input: $input) {
+    id
+    devices {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        ratingCount
+        ratingTime
+      }
+      nextToken
+    }
+    email
+    name
+  }
+}
+mutation UpdateUser($input: UpdateUserInput!) {
+  updateUser(input: $input) {
+    id
+    devices {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        ratingCount
+        ratingTime
+      }
+      nextToken
+    }
+    email
+    name
+  }
+}
+mutation DeleteUser($input: DeleteUserInput!) {
+  deleteUser(input: $input) {
+    id
+    devices {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        ratingCount
+        ratingTime
+      }
+      nextToken
+    }
+    email
+    name
+  }
+}
+mutation CreateDeviceUser($input: CreateDeviceUserInput!) {
+  createDeviceUser(input: $input) {
+    id
+    device {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    users {
+      id
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      email
+      name
+    }
+    macId
+  }
+}
+mutation UpdateDeviceUser($input: UpdateDeviceUserInput!) {
+  updateDeviceUser(input: $input) {
+    id
+    device {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    users {
+      id
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      email
+      name
+    }
+    macId
+  }
+}
+mutation DeleteDeviceUser($input: DeleteDeviceUserInput!) {
+  deleteDeviceUser(input: $input) {
+    id
+    device {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    users {
+      id
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      email
+      name
+    }
+    macId
+  }
+}
+mutation CreateDevice($input: CreateDeviceInput!) {
+  createDevice(input: $input) {
+    id
+    deviceUsers {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    schedules {
+      items {
+        id
+        bedTimeInSec
+        bleDays
+        daysInArray
+        isActive
+        scheduleDsn
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
+      nextToken
+    }
+    deviceOriginalName
+    deviceUpdatedName
+    logs {
+      items {
+        id
+        description
+        logEntry
+        timeStamp
+      }
+      nextToken
+    }
+  }
+}
+mutation UpdateDevice($input: UpdateDeviceInput!) {
+  updateDevice(input: $input) {
+    id
+    deviceUsers {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    schedules {
+      items {
+        id
+        bedTimeInSec
+        bleDays
+        daysInArray
+        isActive
+        scheduleDsn
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
+      nextToken
+    }
+    deviceOriginalName
+    deviceUpdatedName
+    logs {
+      items {
+        id
+        description
+        logEntry
+        timeStamp
+      }
+      nextToken
+    }
+  }
+}
+mutation DeleteDevice($input: DeleteDeviceInput!) {
+  deleteDevice(input: $input) {
+    id
+    deviceUsers {
+      items {
+        id
+        macId
+      }
+      nextToken
+    }
+    schedules {
+      items {
+        id
+        bedTimeInSec
+        bleDays
+        daysInArray
+        isActive
+        scheduleDsn
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
+      nextToken
+    }
+    deviceOriginalName
+    deviceUpdatedName
+    logs {
+      items {
+        id
+        description
+        logEntry
+        timeStamp
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateSchedule($input: CreateScheduleInput!) {
+  createSchedule(input: $input) {
+    id
+    advanceSchedules {
+      items {
+        id
+        hour
+        min
+        prefixDate
+        temp
+        tempUnit
+        timeInSec
+        timeUnit
+      }
+      nextToken
+    }
+    bedTimeInSec
+    bleDays
+    daysInArray
+    device {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    isActive
+    scheduleDsn
+    scheduleName
+    scheduleStorageId
+    sleepTimeHour
+    sleepTimeMin
+    sleepTimeUnit
+    storageId
+    temperature
+    temperatureUnit
+    type
+    upTimeHour
+    upTimeInSec
+    upTimeMin
+    upTimeUnit
+    warmAwake
+  }
+}
+mutation UpdateSchedule($input: UpdateScheduleInput!) {
+  updateSchedule(input: $input) {
+    id
+    advanceSchedules {
+      items {
+        id
+        hour
+        min
+        prefixDate
+        temp
+        tempUnit
+        timeInSec
+        timeUnit
+      }
+      nextToken
+    }
+    bedTimeInSec
+    bleDays
+    daysInArray
+    device {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    isActive
+    scheduleDsn
+    scheduleName
+    scheduleStorageId
+    sleepTimeHour
+    sleepTimeMin
+    sleepTimeUnit
+    storageId
+    temperature
+    temperatureUnit
+    type
+    upTimeHour
+    upTimeInSec
+    upTimeMin
+    upTimeUnit
+    warmAwake
+  }
+}
+mutation DeleteSchedule($input: DeleteScheduleInput!) {
+  deleteSchedule(input: $input) {
+    id
+    advanceSchedules {
+      items {
+        id
+        hour
+        min
+        prefixDate
+        temp
+        tempUnit
+        timeInSec
+        timeUnit
+      }
+      nextToken
+    }
+    bedTimeInSec
+    bleDays
+    daysInArray
+    device {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    isActive
+    scheduleDsn
+    scheduleName
+    scheduleStorageId
+    sleepTimeHour
+    sleepTimeMin
+    sleepTimeUnit
+    storageId
+    temperature
+    temperatureUnit
+    type
+    upTimeHour
+    upTimeInSec
+    upTimeMin
+    upTimeUnit
+    warmAwake
+  }
+}
+mutation CreateAdvanceSchedule($input: CreateAdvanceScheduleInput!) {
+  createAdvanceSchedule(input: $input) {
+    id
+    hour
+    min
+    prefixDate
+    schedule {
+      id
+      advanceSchedules {
+        nextToken
+      }
+      bedTimeInSec
+      bleDays
+      daysInArray
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      isActive
+      scheduleDsn
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
+    temp
+    tempUnit
+    timeInSec
+    timeUnit
+  }
+}
+mutation UpdateAdvanceSchedule($input: UpdateAdvanceScheduleInput!) {
+  updateAdvanceSchedule(input: $input) {
+    id
+    hour
+    min
+    prefixDate
+    schedule {
+      id
+      advanceSchedules {
+        nextToken
+      }
+      bedTimeInSec
+      bleDays
+      daysInArray
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      isActive
+      scheduleDsn
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
+    temp
+    tempUnit
+    timeInSec
+    timeUnit
+  }
+}
+mutation DeleteAdvanceSchedule($input: DeleteAdvanceScheduleInput!) {
+  deleteAdvanceSchedule(input: $input) {
+    id
+    hour
+    min
+    prefixDate
+    schedule {
+      id
+      advanceSchedules {
+        nextToken
+      }
+      bedTimeInSec
+      bleDays
+      daysInArray
+      device {
+        id
+        deviceOriginalName
+        deviceUpdatedName
+      }
+      isActive
+      scheduleDsn
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
+    temp
+    tempUnit
+    timeInSec
+    timeUnit
+  }
+}
+mutation CreateDeviceLog($input: CreateDeviceLogInput!) {
+  createDeviceLog(input: $input) {
+    id
+    description
+    device {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    logEntry
+    timeStamp
+  }
+}
+mutation UpdateDeviceLog($input: UpdateDeviceLogInput!) {
+  updateDeviceLog(input: $input) {
+    id
+    description
+    device {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    logEntry
+    timeStamp
+  }
+}
+mutation DeleteDeviceLog($input: DeleteDeviceLogInput!) {
+  deleteDeviceLog(input: $input) {
+    id
+    description
+    device {
+      id
+      deviceUsers {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+      deviceOriginalName
+      deviceUpdatedName
+      logs {
+        nextToken
+      }
+    }
+    logEntry
+    timeStamp
+  }
+}
+mutation CreateRating($input: CreateRatingInput!) {
+  createRating(input: $input) {
+    id
+    ratingCount
+    ratingTime
+    user {
+      id
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      email
+      name
+    }
+  }
+}
+mutation UpdateRating($input: UpdateRatingInput!) {
+  updateRating(input: $input) {
+    id
+    ratingCount
+    ratingTime
+    user {
+      id
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      email
+      name
+    }
+  }
+}
+mutation DeleteRating($input: DeleteRatingInput!) {
+  deleteRating(input: $input) {
+    id
+    ratingCount
+    ratingTime
+    user {
+      id
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      email
+      name
+    }
+  }
+}

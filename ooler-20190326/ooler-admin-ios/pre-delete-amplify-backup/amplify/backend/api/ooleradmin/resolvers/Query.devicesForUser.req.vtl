@@ -1,0 +1,21 @@
+
+#set( $limit = $util.defaultIfNull($context.args.limit, 10) )
+{
+  "version": "2017-02-28",
+  "operation": "Query",
+  "query": {
+    "expression": "#connectionAttribute = :connectionAttribute",
+    "expressionNames": {
+        "#connectionAttribute": "devicesForUser"
+    },
+    "expressionValues": {
+        ":connectionAttribute": {
+            "S": "$context.args.userId"
+        }
+    }
+  },
+  "scanIndexForward": true,
+  "limit": $limit,
+  "nextToken": #if( $context.args.nextToken ) "$context.args.nextToken" #else null #end,
+  "index": "gsi-UserDeviceUsers"
+}
