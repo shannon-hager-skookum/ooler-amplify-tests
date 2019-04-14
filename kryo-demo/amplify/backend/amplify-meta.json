@@ -1,0 +1,32 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "kryo-demo-20190412113503-authRole",
+			"UnauthRoleArn": "arn:aws:iam::380718798498:role/kryo-demo-20190412113503-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::380718798498:role/kryo-demo-20190412113503-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "kryo-demo-20190412113503-deployment",
+			"UnauthRoleName": "kryo-demo-20190412113503-unauthRole",
+			"StackName": "kryo-demo-20190412113503",
+			"StackId": "arn:aws:cloudformation:us-east-1:380718798498:stack/kryo-demo-20190412113503/8a8c8f10-5d38-11e9-a5ad-120371d9064c"
+		}
+	},
+	"api": {
+		"kryodemo": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "API_KEY",
+				"GraphQLAPIIdOutput": "5cb76qbtand57hs4ssvjkrowxi",
+				"GraphQLAPIEndpointOutput": "https://ev6xd2vyrbcrzif4o2ohbzsvfy.appsync-api.us-east-1.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-yff6ybvczbbtphxvv6opmqlzfe"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/kryo-demo-20190412113503-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apikryodemo"
+			},
+			"lastPushTimeStamp": "2019-04-12T15:43:09.611Z",
+			"lastPushDirHash": "eX7nX5QJUoxekkzS5O4rpVDu0tc="
+		}
+	}
+}

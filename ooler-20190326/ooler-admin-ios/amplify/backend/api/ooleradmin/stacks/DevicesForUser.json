@@ -1,0 +1,58 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "An auto-generated nested stack.",
+    "Metadata": {},
+    "Parameters": {
+        "S3DeploymentBucket": {
+            "Type": "String",
+            "Description": "The S3 bucket containing all deployment assets for the project."
+        },
+        "S3DeploymentRootKey": {
+            "Type": "String",
+            "Description": "An S3 key relative to the S3DeploymentBucket that points to the root of the deployment directory."
+        },
+        "AppSyncApiId": {
+            "Type": "String",
+            "Description": "The id of the AppSync API associated with this project."
+        }
+    },
+    "Resources": {
+        "QueryDevicesForUserResolver": {
+            "Type": "AWS::AppSync::Resolver",
+            "Properties": {
+                "ApiId": {
+                    "Ref": "AppSyncApiId"
+                },
+                "DataSourceName": "DeviceUserTable",
+                "TypeName": "Query",
+                "FieldName": "devicesForUser",
+                "RequestMappingTemplateS3Location": {
+                  "Fn::Sub": [
+                    "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Query.devicesForUser.req.vtl",
+                    {
+                      "S3DeploymentBucket": {
+                        "Ref": "S3DeploymentBucket"
+                      },
+                      "S3DeploymentRootKey": {
+                        "Ref": "S3DeploymentRootKey"
+                      }
+                    }
+                  ]
+                },
+                "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Query.devicesForUser.res.vtl",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 projects:
   ooleradmin:
-    schemaPath: graphql/schema.json
+    schemaPath: graphql/graphql/schema.json
     includes:
       - graphql/**/*.graphql
     excludes:

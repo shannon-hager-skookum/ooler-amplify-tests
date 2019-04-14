@@ -7,7 +7,7 @@
 #####################
 
 # User
-type User @model {
+type User @model(subscriptions: null) {
   id: ID!
   #DeviceList(limit: Int, nextToken: String): DeviceConnection
   DeviceList: [DeviceUser] @connection(name: "UserDeviceUsers")
@@ -17,15 +17,15 @@ type User @model {
   name: String!
 }
 
-type DeviceUser @model {
+type DeviceUser @model(subscriptions: null) {
   id: ID!
   device: Device! @connection(name: "DeviceDeviceUsers")
-  users: User! @connection(name: "UserDeviceUsers")
+  user: User! @connection(name: "UserDeviceUsers")
   macId: String!
 }
 
 # Device
-type Device @model {
+type Device @model(subscriptions: null) {
   id: ID!
 #  DeviceDataList(limit: Int, nextToken: String): DeviceDataConnection
 #  DeviceDetailsList(limit: Int, nextToken: String): DeviceDetailsConnection
@@ -40,14 +40,14 @@ type Device @model {
 }
 
 # DeviceData
-#type DeviceData @model {
+#type DeviceData @model(subscriptions: null) {
 #  id: ID!
 #  deviceOrigionalName: String!
 #  deviceUpdatedName: String!
 #}
 
 # DeviceDetails
-#type DeviceDetails @model {
+#type DeviceDetails @model(subscriptions: null) {
 #  deviceDetailsId: String!
 #  deviceId: ID!
 #  deviceName: String
@@ -57,7 +57,7 @@ type Device @model {
 #}
 
 # Schedule
-type Schedule @model {
+type Schedule @model(subscriptions: null) {
   id: ID!
 #  AdvanceScheduleList(limit: Int, nextToken: String): AdvanceScheduleConnection
   AdvanceScheduleList: [AdvanceSchedule] @connection(name: "ScheduleAdvancedSchedules")
@@ -86,7 +86,7 @@ type Schedule @model {
 }
 
 # AdvancedSchedule
-type AdvanceSchedule @model {
+type AdvanceSchedule @model(subscriptions: null) {
   id: ID!
   hour: Int!
   min: Int!
@@ -99,7 +99,7 @@ type AdvanceSchedule @model {
 }
 
 # DeviceLogs
-type DeviceLog @model {
+type DeviceLog @model(subscriptions: null) {
   id: ID!
   description: String!
 # deviceId: ID!
@@ -109,7 +109,7 @@ type DeviceLog @model {
 }
 
 # AppUsage
-#type AppUsage @model {
+#type AppUsage @model(subscriptions: null) {
 #  id: ID!
 #  parameters: String!
 #  timestamp: String!
@@ -126,7 +126,7 @@ type DeviceLog @model {
 #}
 
 # Rating @model
-type Rating @model {
+type Rating @model(subscriptions: null) {
   id: ID!
   ratingCount: Int!
   ratingTime: String!
@@ -157,9 +157,6 @@ type Query {
 ################################
 ################### STOP #######
 ################################
-
-
-
 
 
 
