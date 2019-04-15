@@ -44,6 +44,38 @@ query ListUsers(
 }
 query GetAdvanceSchedule($id: ID!) {
   getAdvanceSchedule(id: $id) {
+    schedule {
+      advancedSchedules {
+        nextToken
+      }
+      bedTimeInSec
+      bedTimeReminder
+      bleDays
+      daysInArray
+      deviceOrigionalName
+      deviceData {
+        deviceDataId
+        deviceOrigionalName
+        deviceUpdatedName
+      }
+      isActive
+      scheduleDsn
+      scheduleId
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
     advanceScheduleId
     hour
     min
@@ -62,6 +94,30 @@ query ListAdvanceSchedules(
 ) {
   listAdvanceSchedules(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      schedule {
+        bedTimeInSec
+        bedTimeReminder
+        bleDays
+        daysInArray
+        deviceOrigionalName
+        isActive
+        scheduleDsn
+        scheduleId
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
       advanceScheduleId
       hour
       min
@@ -100,6 +156,17 @@ query ListAppUsages(
 }
 query GetDevice($id: ID!) {
   getDevice(id: $id) {
+    deviceDatas {
+      deviceDataId
+      deviceOrigionalName
+      deviceUpdatedName
+      devices {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+    }
     deviceId
     deviceOrigionalName
     macId
@@ -123,6 +190,11 @@ query ListDevices(
 ) {
   listDevices(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      deviceDatas {
+        deviceDataId
+        deviceOrigionalName
+        deviceUpdatedName
+      }
       deviceId
       deviceOrigionalName
       macId
@@ -137,8 +209,44 @@ query ListDevices(
 }
 query GetDeviceData($id: ID!) {
   getDeviceData(id: $id) {
+    deviceDataId
     deviceOrigionalName
     deviceUpdatedName
+    devices {
+      items {
+        deviceId
+        deviceOrigionalName
+        macId
+      }
+      nextToken
+    }
+    schedules {
+      items {
+        bedTimeInSec
+        bedTimeReminder
+        bleDays
+        daysInArray
+        deviceOrigionalName
+        isActive
+        scheduleDsn
+        scheduleId
+        scheduleName
+        scheduleStorageId
+        sleepTimeHour
+        sleepTimeMin
+        sleepTimeUnit
+        storageId
+        temperature
+        temperatureUnit
+        type
+        upTimeHour
+        upTimeInSec
+        upTimeMin
+        upTimeUnit
+        warmAwake
+      }
+      nextToken
+    }
   }
 }
 query ListDeviceDatas(
@@ -148,8 +256,15 @@ query ListDeviceDatas(
 ) {
   listDeviceDatas(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      deviceDataId
       deviceOrigionalName
       deviceUpdatedName
+      devices {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
     }
     nextToken
   }
@@ -243,11 +358,36 @@ query ListRatings(
 }
 query GetSchedule($id: ID!) {
   getSchedule(id: $id) {
+    advancedSchedules {
+      items {
+        advanceScheduleId
+        hour
+        min
+        prefixDate
+        scheduleId
+        temp
+        tempUnit
+        timeInSec
+        timeUnit
+      }
+      nextToken
+    }
     bedTimeInSec
     bedTimeReminder
     bleDays
     daysInArray
     deviceOrigionalName
+    deviceData {
+      deviceDataId
+      deviceOrigionalName
+      deviceUpdatedName
+      devices {
+        nextToken
+      }
+      schedules {
+        nextToken
+      }
+    }
     isActive
     scheduleDsn
     scheduleId
@@ -274,11 +414,19 @@ query ListSchedules(
 ) {
   listSchedules(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      advancedSchedules {
+        nextToken
+      }
       bedTimeInSec
       bedTimeReminder
       bleDays
       daysInArray
       deviceOrigionalName
+      deviceData {
+        deviceDataId
+        deviceOrigionalName
+        deviceUpdatedName
+      }
       isActive
       scheduleDsn
       scheduleId
