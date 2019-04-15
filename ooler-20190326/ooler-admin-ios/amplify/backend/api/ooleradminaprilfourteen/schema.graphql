@@ -15,6 +15,7 @@ type User @model(subscriptions: null) {
 #}
 
 type AdvanceSchedule @model(subscriptions: null) {
+  schedule: Schedule @connection(name: "ScheduleAdvancedSchedules")
   advanceScheduleId: ID!
   hour: Int!
   min: Int!
@@ -49,8 +50,10 @@ type AppUsage @model(subscriptions: null) {
 
 type Device @model(subscriptions: null) {
   #DeviceDataList(limit: Int, nextToken: String): DeviceDataConnection
+  deviceDatas: DeviceData @connection(name: "DevicesDeviceData")
   #DeviceDetailsList(limit: Int, nextToken: String): DeviceDetailsConnection
   #ScheduleList(limit: Int, nextToken: String): ScheduleConnection
+  #schedules: [Schedule] @connection(name: "DeviceSchedules")
   deviceId: ID!
   deviceOrigionalName: String!
   macId: String!
@@ -64,8 +67,11 @@ type Device @model(subscriptions: null) {
 #}
 
 type DeviceData @model(subscriptions: null) {
+  deviceDataId: ID!
   deviceOrigionalName: String!
   deviceUpdatedName: String!
+  devices: [Device] @connection(name: "DevicesDeviceData")
+  schedules: [Schedule] @connection(name: "DeviceDataSchedules")
 }
 
 #type DeviceDataConnection {
@@ -200,11 +206,13 @@ type Rating @model(subscriptions: null) {
 
 type Schedule @model(subscriptions: null) {
   #AdvanceScheduleList(limit: Int, nextToken: String): AdvanceScheduleConnection
+  advancedSchedules: [AdvanceSchedule] @connection(name: "ScheduleAdvancedSchedules")
   bedTimeInSec: String
   bedTimeReminder: Boolean!
   bleDays: String!
   daysInArray: AWSJSON!
   deviceOrigionalName: String!
+  deviceData: DeviceData @connection(name: "DeviceDataSchedules")
   isActive: Boolean
   scheduleDsn: String
   scheduleId: ID!

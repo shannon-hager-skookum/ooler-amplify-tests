@@ -1,6 +1,22 @@
 # this is an auto generated file. This will be overwritten
 query GetUser($id: ID!) {
   getUser(id: $id) {
+    devices {
+      items {
+        deviceId
+        deviceOrigionalName
+        macId
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        ratingCount
+        ratingId
+        ratingTime
+      }
+      nextToken
+    }
     email
     name
     userId
@@ -13,6 +29,12 @@ query ListUsers(
 ) {
   listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
       email
       name
       userId
@@ -81,7 +103,17 @@ query GetDevice($id: ID!) {
     deviceId
     deviceOrigionalName
     macId
-    userId
+    user {
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      email
+      name
+      userId
+    }
   }
 }
 query ListDevices(
@@ -94,7 +126,11 @@ query ListDevices(
       deviceId
       deviceOrigionalName
       macId
-      userId
+      user {
+        email
+        name
+        userId
+      }
     }
     nextToken
   }
@@ -173,7 +209,17 @@ query GetRating($id: ID!) {
     ratingCount
     ratingId
     ratingTime
-    userId
+    user {
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      email
+      name
+      userId
+    }
   }
 }
 query ListRatings(
@@ -186,7 +232,11 @@ query ListRatings(
       ratingCount
       ratingId
       ratingTime
-      userId
+      user {
+        email
+        name
+        userId
+      }
     }
     nextToken
   }
