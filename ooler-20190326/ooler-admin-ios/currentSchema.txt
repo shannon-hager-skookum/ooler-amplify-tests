@@ -1,0 +1,418 @@
+
+INPUTS
+
+
+#input CreateAdvanceScheduleInput {
+#  advanceScheduleId: String!
+#  hour: Int!
+#  min: Int!
+#  prefixDate: String!
+#  scheduleId: ID!
+#  temp: Int!
+#  tempUnit: String!
+#  timeInSec: String
+#  timeUnit: String!
+#}
+
+#input CreateAppUsageInput {
+#  appUsageId: String!
+#  parameters: String!
+#  timestamp: String!
+#  userId: String!
+#}
+
+#input CreateDeviceDataInput {
+#  deviceOrigionalName: String!
+#  deviceUpdatedName: String!
+#}
+
+#input CreateDeviceDetailsInput {
+#  deviceDetailsId: String!
+#  deviceId: ID!
+#  deviceName: String
+#  power: Int
+#  tempUnit: String
+#  temperature: Int
+#}
+
+#input CreateDeviceInput {
+#  deviceId: String!
+#  deviceOrigionalName: String!
+#  macId: String!
+#  userId: ID!
+#}
+
+#input CreateDeviceLogInput {
+#  description: String!
+#  deviceId: ID!
+#  logEntry: String!
+#  logId: String!
+#  timeStamp: String!
+#}
+
+#input CreateIntegrationsInput {
+#  integrationId: String!
+#  integrationKey: String!
+#  parameters: String!
+#  timestamp: String!
+#  userId: String!
+#}
+
+#input CreateRatingInput {
+#  ratingCount: Int!
+#  ratingId: String!
+#  ratingTime: String!
+#  userId: ID!
+#}
+
+#input CreateScheduleInput {
+#  bedTimeInSec: String
+#  bedTimeReminder: Boolean!
+#  bleDays: String!
+#  daysInArray: AWSJSON!
+#  deviceOrigionalName: String!
+#  isActive: Boolean
+#  scheduleDsn: String
+#  scheduleId: String!
+#  scheduleName: String!
+#  scheduleStorageId: Int
+#  sleepTimeHour: Int
+#  sleepTimeMin: Int
+#  sleepTimeUnit: String
+#  storageId: String!
+#  temperature: Int
+#  temperatureUnit: String
+#  type: String
+#  upTimeHour: Int
+#  upTimeInSec: String
+#  upTimeMin: Int
+#  upTimeUnit: String
+#  warmAwake: Boolean!
+#}
+
+#input CreateUserInput {
+#  email: AWSEmail
+#  name: String!
+#  userId: ID!
+#}
+
+#input DeleteAdvanceScheduleInput {
+#  advanceScheduleId: ID!
+#}
+
+#input DeleteAppUsageInput {
+#  appUsageId: String!
+#}
+
+#input DeleteDeviceDataInput {
+#  deviceOriginalName: String!
+#}
+
+#input DeleteDeviceDetailsInput {
+#  deviceDetailsId: ID!
+#}
+
+#input DeleteDeviceInput {
+#  deviceId: ID!
+#}
+
+#input DeleteDeviceLogInput {
+#  logId: String!
+#}
+
+#input DeleteIntegrationsInput {
+#  integrationId: String!
+#}
+
+#input DeleteRatingInput {
+#  ratingId: ID!
+#}
+
+#input DeleteScheduleInput {
+#  scheduleId: ID!
+#}
+
+#input DeleteUserInput {
+#  userId: ID!
+#}
+
+#input TableAdvanceScheduleFilterInput {
+#  advanceScheduleId: TableIDFilterInput
+#  hour: TableIntFilterInput
+#  min: TableIntFilterInput
+#  prefixDate: TableStringFilterInput
+#  scheduleId: TableIDFilterInput
+#  temp: TableIntFilterInput
+#  tempUnit: TableStringFilterInput
+#  timeInSec: TableStringFilterInput
+#  timeUnit: TableStringFilterInput
+#}
+
+#input TableAppUsageFilterInput {
+#  appUsageId: TableStringFilterInput
+#  parameters: TableStringFilterInput
+#  timestamp: TableStringFilterInput
+#  userId: TableStringFilterInput
+#}
+
+#input TableBooleanFilterInput {
+#  eq: Boolean
+#  ne: Boolean
+#}
+
+#input TableDeviceDataFilterInput {
+#  deviceOrigionalName: TableStringFilterInput
+#  deviceUpdatedName: TableStringFilterInput
+#}
+
+#input TableDeviceDetailsFilterInput {
+#  deviceDetailsId: TableIDFilterInput
+#  deviceId: TableIDFilterInput
+#  deviceName: TableStringFilterInput
+#  power: TableIntFilterInput
+#  tempUnit: TableStringFilterInput
+#  temperature: TableIntFilterInput
+#}
+
+#input TableDeviceFilterInput {
+#  deviceId: TableIDFilterInput
+#  deviceOrigionalName: TableStringFilterInput
+#  macId: TableStringFilterInput
+#  userId: TableIDFilterInput
+#}
+
+#input TableDeviceLogFilterInput {
+#  description: TableStringFilterInput
+#  deviceId: TableIDFilterInput
+#  logEntry: TableStringFilterInput
+#  logId: TableStringFilterInput
+#  timeStamp: TableStringFilterInput
+#}
+
+#input TableFloatFilterInput {
+#  between: [Float]
+#  contains: Float
+#  eq: Float
+#  ge: Float
+#  gt: Float
+#  le: Float
+#  lt: Float
+#  ne: Float
+#  notContains: Float
+#}
+
+#input TableIDFilterInput {
+#  beginsWith: ID
+#  between: [ID]
+#  contains: ID
+#  eq: ID
+#  ge: ID
+#  gt: ID
+#  le: ID
+#  lt: ID
+#  ne: ID
+#  notContains: ID
+#}
+
+#input TableIntFilterInput {
+#  between: [Int]
+#  contains: Int
+#  eq: Int
+#  ge: Int
+#  gt: Int
+#  le: Int
+#  lt: Int
+#  ne: Int
+#  notContains: Int
+#}
+
+#input TableIntegrationsFilterInput {
+#  integrationId: TableStringFilterInput
+#  integrationKey: TableStringFilterInput
+#  parameters: TableStringFilterInput
+#  timestamp: TableStringFilterInput
+#  userId: TableStringFilterInput
+#}
+
+#input TableRatingFilterInput {
+#  ratingCount: TableIntFilterInput
+#  ratingId: TableIDFilterInput
+#  ratingTime: TableStringFilterInput
+#  userId: TableIDFilterInput
+#}
+
+#input TableScheduleFilterInput {
+#  bedTimeInSec: TableStringFilterInput
+#  bedTimeReminder: TableBooleanFilterInput
+#  bleDays: TableStringFilterInput
+#  daysInArray: TableStringFilterInput
+#  deviceOrigionalName: TableStringFilterInput
+#  isActive: TableBooleanFilterInput
+#  scheduleDsn: TableStringFilterInput
+#  scheduleId: TableIDFilterInput
+#  scheduleName: TableStringFilterInput
+#  scheduleStorageId: TableIntFilterInput
+#  sleepTimeHour: TableIntFilterInput
+#  sleepTimeMin: TableIntFilterInput
+#  sleepTimeUnit: TableStringFilterInput
+#  storageId: TableStringFilterInput
+#  temperature: TableIntFilterInput
+#  temperatureUnit: TableStringFilterInput
+#  type: TableStringFilterInput
+#  upTimeHour: TableIntFilterInput
+#  upTimeInSec: TableStringFilterInput
+#  upTimeMin: TableIntFilterInput
+#  upTimeUnit: TableStringFilterInput
+#  warmAwake: TableBooleanFilterInput
+#}
+
+#input TableStringFilterInput {
+#  beginsWith: String
+#  between: [String]
+#  contains: String
+#  eq: String
+#  ge: String
+#  gt: String
+#  le: String
+#  lt: String
+#  ne: String
+#  notContains: String
+#}
+
+#input TableUserFilterInput {
+#  email: TableStringFilterInput
+#  name: TableStringFilterInput
+#  userId: TableIDFilterInput
+#}
+
+#input UpdateAdvanceScheduleInput {
+#  advanceScheduleId: ID!
+#  hour: Int
+#  min: Int
+#  prefixDate: String
+#  scheduleId: ID!
+#  temp: Int
+#  tempUnit: String
+#  timeInSec: String
+#  timeUnit: String
+#}
+
+#input UpdateAppUsageInput {
+#  appUsageId: String!
+#  parameters: String
+#  timestamp: String
+#  userId: String
+#}
+
+#input UpdateDeviceDataInput {
+#  deviceOrigionalName: String!
+#  deviceUpdatedName: String
+#}
+
+#input UpdateDeviceDetailsInput {
+#  deviceDetailsId: ID!
+#  deviceId: ID!
+#  deviceName: String
+#  power: Int
+#  tempUnit: String
+#  temperature: Int
+#}
+
+#input UpdateDeviceInput {
+#  deviceId: ID!
+#  deviceOrigionalName: String
+#  macId: String
+#  userId: ID!
+#}
+
+#input UpdateDeviceLogInput {
+#  description: String
+#  deviceId: ID
+#  logEntry: String
+#  logId: String!
+#  timeStamp: String
+#}
+
+#input UpdateIntegrationsInput {
+#  integrationId: String!
+#  integrationKey: String
+#  parameters: String
+#  timestamp: String
+#  userId: String
+#}
+
+#input UpdateRatingInput {
+#  ratingCount: Int
+#  ratingId: ID!
+#  ratingTime: String
+#  userId: ID!
+#}
+
+#input UpdateScheduleInput {
+#  bedTimeInSec: String
+#  bedTimeReminder: Boolean
+#  bleDays: String
+#  daysInArray: AWSJSON!
+#  deviceOrigionalName: String!
+#  isActive: Boolean
+#  scheduleDsn: String
+#  scheduleId: ID!
+#  scheduleName: String
+#  scheduleStorageId: Int
+#  sleepTimeHour: Int
+#  sleepTimeMin: Int
+#  sleepTimeUnit: String
+#  storageId: String!
+#  temperature: Int
+#  temperatureUnit: String
+#  type: String
+#  upTimeHour: Int
+#  upTimeInSec: String
+#  upTimeMin: Int
+#  upTimeUnit: String
+#  warmAwake: Boolean
+#}
+
+#input UpdateUserInput {
+#  email: AWSEmail
+#  name: String
+#  userId: ID!
+#}
+
+
+SUBSCRIPTIONS
+
+
+#type Subscription {
+#  onCreateAdvanceSchedule(advanceScheduleId: ID, hour: Int, min: Int, scheduleId: ID, temp: Int): AdvanceSchedule @aws_subscribe(mutations : ["createAdvanceSchedule"])
+#  onCreateAppUsage(appUsageId: String, parameters: String, timestamp: String, userId: String): AppUsage @aws_subscribe(mutations : ["createAppUsage"])
+#  onCreateDevice(deviceId: ID, deviceOrigionalName: String, macId: String, userId: ID): Device @aws_subscribe(mutations : ["createDevice"])
+#  onCreateDeviceData(deviceOrigionalName: String, deviceUpdatedName: String): DeviceData @aws_subscribe(mutations : ["createDeviceData"])
+#  onCreateDeviceDetails(deviceDetailsId: ID, deviceId: ID, deviceName: String, power: Int, temperature: Int): DeviceDetails @aws_subscribe(mutations : ["createDeviceDetails"])
+#  onCreateDeviceLog(description: String, deviceId: ID, logEntry: String, logId: String, timeStamp: String): DeviceLog @aws_subscribe(mutations : ["createDeviceLog"])
+#  onCreateIntegrations(integrationId: String, integrationKey: String, parameters: String, timestamp: String, userId: String): Integrations @aws_subscribe(mutations : ["createIntegrations"])
+#  onCreateRating(ratingCount: Int, ratingId: ID, ratingTime: String, userId: ID): Rating @aws_subscribe(mutations : ["createRating"])
+#  onCreateSchedule(deviceOrigionalName: String, scheduleId: ID, scheduleName: String, sleepTimeHour: Int, sleepTimeMin: Int): Schedule @aws_subscribe(mutations : ["createSchedule"])
+#  onCreateUser(email: AWSEmail, name: String, userId: ID): User @aws_subscribe(mutations : ["createUser"])
+#  onDeleteAdvanceSchedule(advanceScheduleId: ID, hour: Int, min: Int, scheduleId: ID, temp: Int): AdvanceSchedule @aws_subscribe(mutations : ["deleteAdvanceSchedule"])
+#  onDeleteAppUsage(appUsageId: String, parameters: String, timestamp: String, userId: String): AppUsage @aws_subscribe(mutations : ["deleteAppUsage"])
+#  onDeleteDevice(deviceId: ID, deviceOrigionalName: String, macId: String, userId: ID): Device @aws_subscribe(mutations : ["deleteDevice"])
+#  onDeleteDeviceData(deviceOrigionalName: String, deviceUpdatedName: String): DeviceData @aws_subscribe(mutations : ["deleteDeviceData"])
+#  onDeleteDeviceDetails(deviceDetailsId: ID, deviceId: ID, deviceName: String, power: Int, temperature: Int): DeviceDetails @aws_subscribe(mutations : ["deleteDeviceDetails"])
+#  onDeleteDeviceLog(description: String, deviceId: ID, logEntry: String, logId: String, timeStamp: String): DeviceLog @aws_subscribe(mutations : ["deleteDeviceLog"])
+#  onDeleteIntegrations(integrationId: String, integrationKey: String, parameters: String, timestamp: String, userId: String): Integrations @aws_subscribe(mutations : ["deleteIntegrations"])
+#  onDeleteRating(ratingCount: Int, ratingId: ID, ratingTime: String, userId: ID): Rating @aws_subscribe(mutations : ["deleteRating"])
+#  onDeleteSchedule(deviceOrigionalName: String, scheduleId: ID, scheduleName: String, sleepTimeHour: Int, sleepTimeMin: Int): Schedule @aws_subscribe(mutations : ["deleteSchedule"])
+#  onDeleteUser(email: AWSEmail, name: String, userId: ID): User @aws_subscribe(mutations : ["deleteUser"])
+#  onUpdateAdvanceSchedule(advanceScheduleId: ID, hour: Int, min: Int, scheduleId: ID, temp: Int): AdvanceSchedule @aws_subscribe(mutations : ["updateAdvanceSchedule"])
+#  onUpdateAppUsage(appUsageId: String, parameters: String, timestamp: String, userId: String): AppUsage @aws_subscribe(mutations : ["updateAppUsage"])
+#  onUpdateDevice(deviceId: ID, deviceOrigionalName: String, macId: String, userId: ID): Device @aws_subscribe(mutations : ["updateDevice"])
+#  onUpdateDeviceData(deviceOrigionalName: String, deviceUpdatedName: String): DeviceData @aws_subscribe(mutations : ["updateDeviceData"])
+#  onUpdateDeviceDetails(deviceDetailsId: ID, deviceId: ID, deviceName: String, power: Int, temperature: Int): DeviceDetails @aws_subscribe(mutations : ["updateDeviceDetails"])
+#  onUpdateDeviceLog(description: String, deviceId: ID, logEntry: String, logId: String, timeStamp: String): DeviceLog @aws_subscribe(mutations : ["updateDeviceLog"])
+#  onUpdateIntegrations(integrationId: String, integrationKey: String, parameters: String, timestamp: String, userId: String): Integrations @aws_subscribe(mutations : ["updateIntegrations"])
+#  onUpdateRating(ratingCount: Int, ratingId: ID, ratingTime: String, userId: ID): Rating @aws_subscribe(mutations : ["updateRating"])
+#  onUpdateSchedule(deviceOrigionalName: String, scheduleId: ID, scheduleName: String, sleepTimeHour: Int, sleepTimeMin: Int): Schedule @aws_subscribe(mutations : ["updateSchedule"])
+#  onUpdateUser(email: AWSEmail, name: String, userId: ID): User @aws_subscribe(mutations : ["updateUser"])
+#}
+

@@ -1,0 +1,19 @@
+{
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "ooler-admin-ios-20190414180128-authRole",
+            "UnauthRoleArn": "arn:aws:iam::380718798498:role/ooler-admin-ios-20190414180128-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::380718798498:role/ooler-admin-ios-20190414180128-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "ooler-admin-ios-20190414180128-deployment",
+            "UnauthRoleName": "ooler-admin-ios-20190414180128-unauthRole",
+            "StackName": "ooler-admin-ios-20190414180128",
+            "StackId": "arn:aws:cloudformation:us-east-1:380718798498:stack/ooler-admin-ios-20190414180128/dd8e9ae0-5f00-11e9-adc3-0e6c2daa9b2c"
+        },
+        "categories": {
+            "auth": {
+                "cognito8f93c439": {}
+            }
+        }
+    }
+}

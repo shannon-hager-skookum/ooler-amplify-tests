@@ -1,0 +1,226 @@
+
+type User @model(subscriptions: null) {
+  #DeviceList(limit: Int, nextToken: String): DeviceConnection
+  #RatingList(limit: Int, nextToken: String): RatingConnection
+  email: AWSEmail
+  name: String!
+  userId: ID!
+}
+
+#type UserConnection {
+#  items: [User]
+#  nextToken: String
+#}
+
+type AdvanceSchedule @model(subscriptions: null) {
+  advanceScheduleId: ID!
+  hour: Int!
+  min: Int!
+  prefixDate: String!
+  scheduleId: ID!
+  temp: Int!
+  tempUnit: String!
+  timeInSec: String
+  timeUnit: String!
+}
+
+#type AdvanceScheduleConnection {
+#  items: [AdvanceSchedule]
+#  nextToken: String
+#}
+
+#type AdvanceScheduleResult {
+#  SyncAdvanceScheduleTable: [AdvanceSchedule]
+#}
+
+type AppUsage @model(subscriptions: null) {
+  appUsageId: ID!
+  parameters: String!
+  timestamp: String!
+  userId: ID!
+}
+
+#type AppUsageConnection {
+#  items: [AppUsage]
+#  nextToken: String
+#}
+
+type Device @model(subscriptions: null) {
+  #DeviceDataList(limit: Int, nextToken: String): DeviceDataConnection
+  #DeviceDetailsList(limit: Int, nextToken: String): DeviceDetailsConnection
+  #ScheduleList(limit: Int, nextToken: String): ScheduleConnection
+  deviceId: ID!
+  deviceOrigionalName: String!
+  macId: String!
+  userId: ID!
+}
+
+#type DeviceConnection {
+#  items: [Device]
+#  nextToken: String
+#}
+
+type DeviceData @model(subscriptions: null) {
+  deviceOrigionalName: String!
+  deviceUpdatedName: String!
+}
+
+#type DeviceDataConnection {
+#  items: [DeviceData]
+#  nextToken: String
+#}
+
+#type DeviceDetails {
+#  deviceDetailsId: String!
+#  deviceId: ID!
+#  deviceName: String
+#  power: Int
+#  tempUnit: String
+#  temperature: Int
+#}
+
+#type DeviceDetailsConnection {
+#  items: [DeviceDetails]
+#  nextToken: String
+#}
+
+type DeviceLog @model(subscriptions: null) {
+  description: String!
+  deviceId: ID!
+  logEntry: String!
+  logId: ID!
+  timeStamp: String!
+}
+
+#type DeviceLogConnection {
+#  items: [DeviceLog]
+#  nextToken: String
+#}
+
+#type DeviceLogResult {
+#  SyncDeviceLogTable: [DeviceLog]
+#}
+
+type Integrations @model(subscriptions: null) {
+  integrationId: ID!
+  integrationKey: String!
+  parameters: String!
+  timestamp: String!
+  userId: ID!
+}
+
+#type IntegrationsConnection {
+#  items: [Integrations]
+#  nextToken: String
+#}
+
+#type Mutation {
+#  createAdvanceSchedule(input: CreateAdvanceScheduleInput!): AdvanceSchedule
+#  createAppUsage(input: CreateAppUsageInput!): AppUsage
+#  createBatchAdvanceSchedule(tempSchedules: [CreateAdvanceScheduleInput!]): AdvanceScheduleResult
+#  createBatchDeviceLog(tempDeviceLog: [CreateDeviceLogInput!]): DeviceLogResult
+#  createDevice(input: CreateDeviceInput!): Device
+#  createDeviceData(input: CreateDeviceDataInput!): DeviceData
+#  createDeviceDetails(input: CreateDeviceDetailsInput!): DeviceDetails
+#  createDeviceLog(input: CreateDeviceLogInput!): DeviceLog
+#  createIntegrations(input: CreateIntegrationsInput!): Integrations
+#  createRating(input: CreateRatingInput!): Rating
+#  createSchedule(input: CreateScheduleInput!): Schedule
+#  createUser(input: CreateUserInput!): User
+#  deleteAdvanceSchedule(advanceScheduleIds: [DeleteAdvanceScheduleInput!]): [AdvanceSchedule!]
+#  deleteAppUsage(input: DeleteAppUsageInput!): AppUsage
+#  deleteDevice(input: DeleteDeviceInput!): Device
+#  deleteDeviceData(input: DeleteDeviceDataInput!): DeviceData
+#  deleteDeviceDetails(input: DeleteDeviceDetailsInput!): DeviceDetails
+#  deleteDeviceLog(input: DeleteDeviceLogInput!): DeviceLog
+#  deleteIntegrations(input: DeleteIntegrationsInput!): Integrations
+#  deleteRating(input: DeleteRatingInput!): Rating
+#  deleteSchedule(input: DeleteScheduleInput!): Schedule
+#  deleteScheduleList(scheduleIds: [DeleteScheduleInput!]): [Schedule!]
+#  deleteUser(input: DeleteUserInput!): User
+#  updateAdvanceSchedule(input: UpdateAdvanceScheduleInput!): AdvanceSchedule
+#  updateAppUsage(input: UpdateAppUsageInput!): AppUsage
+#  updateDevice(input: UpdateDeviceInput!): Device
+#  updateDeviceData(input: UpdateDeviceDataInput!): DeviceData
+#  updateDeviceDetails(input: UpdateDeviceDetailsInput!): DeviceDetails
+#  updateDeviceLog(input: UpdateDeviceLogInput!): DeviceLog
+#  updateIntegrations(input: UpdateIntegrationsInput!): Integrations
+#  updateRating(input: UpdateRatingInput!): Rating
+#  updateSchedule(input: UpdateScheduleInput!): Schedule
+#  updateUser(input: UpdateUserInput!): User
+#}
+
+#type Query {
+#  getAdvanceSchedule(advanceScheduleId: ID!, scheduleId: ID!): AdvanceSchedule
+#  getAppUsage(appUsageId: String!): AppUsage
+#  getDevice(deviceId: ID!, userId: ID!): Device
+#  getDeviceByAddress(deviceOrigionalName: String!, userId: ID!): DeviceConnection
+#  getDeviceData(deviceOrigionalName: String!): DeviceData
+#  getDeviceDetails(deviceDetailsId: ID!, deviceId: ID!): DeviceDetails
+#  getDeviceLog(logId: String!): DeviceLog
+#  getIntegrations(integrationId: String!): Integrations
+#  getRating(ratingTime: String!, userId: ID!): RatingConnection
+#  getSchedule(deviceOrigionalName: String!, scheduleId: ID!): Schedule
+#  getUser(userId: ID!): User
+#  listAdvanceSchedules(filter: TableAdvanceScheduleFilterInput, limit: Int, nextToken: String): AdvanceScheduleConnection
+#  listAppUsages(filter: TableAppUsageFilterInput, limit: Int, nextToken: String): AppUsageConnection
+#  listDeviceData(filter: TableDeviceDataFilterInput, limit: Int, nextToken: String): DeviceDataConnection
+#  listDeviceDetails(deviceId: ID!, filter: TableDeviceDetailsFilterInput, limit: Int, nextToken: String): DeviceDetailsConnection
+#  listDeviceLogs(filter: TableDeviceLogFilterInput, limit: Int, nextToken: String): DeviceLogConnection
+#  listDevices(filter: TableDeviceFilterInput, limit: Int, nextToken: String, userId: ID!): DeviceConnection
+#  listIntegrations(filter: TableIntegrationsFilterInput, limit: Int, nextToken: String): IntegrationsConnection
+#  listRatings(filter: TableRatingFilterInput, limit: Int, nextToken: String, userId: ID!): RatingConnection
+#  listSchedules(deviceOrigionalName: String!, filter: TableScheduleFilterInput, limit: Int, nextToken: String): ScheduleConnection
+#  listUsers(filter: TableUserFilterInput, limit: Int, nextToken: String, userId: ID!): UserConnection
+#  queryAdvanceScheduleIdScheduleIdIndex(advanceScheduleId: ID!, after: String, first: Int): AdvanceScheduleConnection
+#  queryAppUsagesByAppUsageIdUserIdIndex(after: String, first: Int, userId: String!): AppUsageConnection
+#  queryDeviceDetailsIdDeviceIdIndex(after: String, deviceDetailsId: ID!, first: Int): DeviceDetailsConnection
+#  queryDeviceIdUserIdIndex(after: String, deviceId: ID!, first: Int): DeviceConnection
+#  queryDeviceLogsByLogIdUserIdIndex(after: String, first: Int, userId: ID!): DeviceLogConnection
+#  queryDeviceOrigionalNameScheduleIdIndex(after: String, first: Int, scheduleId: ID!): ScheduleConnection
+#  queryIntegrationsByIntegrationIdUserIdIndex(after: String, first: Int, userId: String!): IntegrationsConnection
+#  queryRatingIdUserIdIndex(after: String, first: Int, ratingId: ID!): RatingConnection
+#}
+
+type Rating @model(subscriptions: null) {
+  ratingCount: Int!
+  ratingId: ID!
+  ratingTime: String!
+  userId: ID!
+}
+
+#type RatingConnection {
+#  items: [Rating]
+#  nextToken: String
+#}
+
+type Schedule @model(subscriptions: null) {
+  #AdvanceScheduleList(limit: Int, nextToken: String): AdvanceScheduleConnection
+  bedTimeInSec: String
+  bedTimeReminder: Boolean!
+  bleDays: String!
+  daysInArray: AWSJSON!
+  deviceOrigionalName: String!
+  isActive: Boolean
+  scheduleDsn: String
+  scheduleId: ID!
+  scheduleName: String!
+  scheduleStorageId: Int
+  sleepTimeHour: Int
+  sleepTimeMin: Int
+  sleepTimeUnit: String
+  storageId: String!
+  temperature: Int
+  temperatureUnit: String
+  type: String
+  upTimeHour: Int
+  upTimeInSec: String
+  upTimeMin: Int
+  upTimeUnit: String
+  warmAwake: Boolean!
+}
+
+#type ScheduleConnection {
+#  items: [Schedule]
+#  nextToken: String
+#}
