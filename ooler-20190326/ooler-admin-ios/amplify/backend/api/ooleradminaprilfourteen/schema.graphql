@@ -1,7 +1,9 @@
 
 type User @model(subscriptions: null) {
   #DeviceList(limit: Int, nextToken: String): DeviceConnection
+  devices: [Device] @connection(name: "UserDevices")
   #RatingList(limit: Int, nextToken: String): RatingConnection
+  ratings: [Rating] @connection(name: "UserRatings")
   email: AWSEmail
   name: String!
   userId: ID!
@@ -52,7 +54,8 @@ type Device @model(subscriptions: null) {
   deviceId: ID!
   deviceOrigionalName: String!
   macId: String!
-  userId: ID!
+  #userId: ID!
+  user: User @connection(name: "UserDevices")
 }
 
 #type DeviceConnection {
@@ -186,7 +189,8 @@ type Rating @model(subscriptions: null) {
   ratingCount: Int!
   ratingId: ID!
   ratingTime: String!
-  userId: ID!
+  #userId: ID!
+  user: User @connection(name: "UserRatings")
 }
 
 #type RatingConnection {
