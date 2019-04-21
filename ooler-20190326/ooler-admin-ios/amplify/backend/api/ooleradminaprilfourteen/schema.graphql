@@ -49,12 +49,12 @@ type AppUsage @model(subscriptions: null) {
 #}
 
 type Device @model(subscriptions: null) {
+  id: ID!
   #DeviceDataList(limit: Int, nextToken: String): DeviceDataConnection
   devicesData: DeviceData @connection(name: "DevicesDeviceData")
   #DeviceDetailsList(limit: Int, nextToken: String): DeviceDetailsConnection
   #ScheduleList(limit: Int, nextToken: String): ScheduleConnection
   #schedules: [Schedule] @connection(name: "DeviceSchedules")
-  deviceId: ID!
   deviceOrigionalName: String!
   macAddress: String!
   #userId: ID!

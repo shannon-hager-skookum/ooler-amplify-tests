@@ -3,7 +3,7 @@ query GetUser($id: ID!) {
   getUser(id: $id) {
     devices {
       items {
-        deviceId
+        id
         deviceOrigionalName
         macAddress
       }
@@ -156,6 +156,7 @@ query ListAppUsages(
 }
 query GetDevice($id: ID!) {
   getDevice(id: $id) {
+    id
     devicesData {
       deviceDataId
       deviceOrigionalName
@@ -167,7 +168,6 @@ query GetDevice($id: ID!) {
         nextToken
       }
     }
-    deviceId
     deviceOrigionalName
     macAddress
     user {
@@ -190,12 +190,12 @@ query ListDevices(
 ) {
   listDevices(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
+      id
       devicesData {
         deviceDataId
         deviceOrigionalName
         deviceUpdatedName
       }
-      deviceId
       deviceOrigionalName
       macAddress
       user {
@@ -214,7 +214,7 @@ query GetDeviceData($id: ID!) {
     deviceUpdatedName
     devices {
       items {
-        deviceId
+        id
         deviceOrigionalName
         macAddress
       }
