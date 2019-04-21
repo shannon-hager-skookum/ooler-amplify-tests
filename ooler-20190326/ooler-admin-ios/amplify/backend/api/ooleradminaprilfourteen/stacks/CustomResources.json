@@ -49,19 +49,10 @@
           ]
         },
         "DataSourceName": {
-          "Fn::ImportValue": {
-            "Fn::Join": [
-              ":",
-              [
-                {
-                  "Ref": "AppSyncApiId"
-                },
-                "GetAtt",
-                "DeviceLogDataSource",
-                "Name"
-              ]
-            ]
-          }
+          "Fn::GetAtt": [
+            "DeviceLogDataSource",
+            "Name"
+          ]
         },
         "FunctionVersion": "2018-05-29",
         "RequestMappingTemplateS3Location": {
