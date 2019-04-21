@@ -31,15 +31,39 @@
 			"Type": "Custom::EmptyResource",
 			"Condition": "AlwaysFalse"
 		},
-    "CreateBatchDeviceLogsResolver": {
-      "Type": "AWS::AppSync::Resolver",
+		"CreateBatchDeviceLogsFunction": {
+      "Type": "AWS::AppSync::FunctionConfiguration",
       "Properties": {
         "ApiId": {
           "Ref": "AppSyncApiId"
         },
-        "DataSourceName": "DeviceLog",
-        "TypeName": "Mutation",
-        "FieldName": "createBatchDeviceLogs",
+        "Name": {
+          "Fn::Join": [
+            "_",
+            [
+              "CreateBatchDeviceLogs",
+              {
+                "Ref": "AppSyncApiId"
+              }
+            ]
+          ]
+        },
+        "DataSourceName": {
+          "Fn::ImportValue": {
+            "Fn::Join": [
+              ":",
+              [
+                {
+                  "Ref": "AppSyncApiId"
+                },
+                "GetAtt",
+                "DeviceLogDataSource",
+                "Name"
+              ]
+            ]
+          }
+        },
+        "FunctionVersion": "2018-05-29",
         "RequestMappingTemplateS3Location": {
           "Fn::Sub": [
             "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Mutation.createBatchDeviceLogs.req.vtl",
@@ -66,6 +90,70 @@
             }
           ]
         }
+      }
+    },
+    "CreateBatchDeviceLogsResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "TypeName": "Mutation",
+        "FieldName": "createBatchDeviceLogs",
+        "Kind": "PIPELINE",
+        "PipelineConfig": {
+          "Functions": [
+            {
+              "Fn::GetAtt": ["CreateBatchDEviceLogsFunction", "FunctionId"]
+            }
+          ]
+        },
+        "RequestMappingTemplate": {
+          "Fn::Join": [
+            "\n",
+            [
+              {
+                "Fn::Sub": [
+                  "$util.qr($ctx.stash.put(\"deviceLogTableName\", \"${deviceLogTableName}\"))",
+                  {
+                    "deviceLogTableName": {
+                      "Fn::If": [
+                        "HasEnvironmentParameter",
+                        {
+                          "Fn::Join": [
+                            "-",
+                            [
+                              "DeviceLog",
+                              {
+                                "Ref": "AppSyncApiId"
+                              },
+                              {
+                                "Ref": "env"
+                              }
+                            ]
+                          ]
+                        },
+                        {
+                          "Fn::Join": [
+                            "-",
+                            [
+                              "DeviceLog",
+                              {
+                                "Ref": "AppSyncApiId"
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "{}"
+            ]
+          ]
+        },
+        "ResponseMappingTemplate": "$util.toJson($ctx.result)"
       }
     }
 	},

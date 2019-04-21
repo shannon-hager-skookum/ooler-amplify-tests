@@ -10,6 +10,6 @@
     "version" : "2018-05-29",
     "operation" : "BatchPutItem",
     "tables" : {
-        "DeviceLogTable": $utils.toJson($deviceLogs)
+        "$ctx.stash.deviceLogTableName": $utils.toJson($deviceLogs)
     }
 }
