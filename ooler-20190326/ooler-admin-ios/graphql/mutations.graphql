@@ -5,7 +5,7 @@ mutation CreateUser($input: CreateUserInput!) {
       items {
         deviceId
         deviceOrigionalName
-        macId
+        macAddress
       }
       nextToken
     }
@@ -28,7 +28,7 @@ mutation UpdateUser($input: UpdateUserInput!) {
       items {
         deviceId
         deviceOrigionalName
-        macId
+        macAddress
       }
       nextToken
     }
@@ -51,7 +51,7 @@ mutation DeleteUser($input: DeleteUserInput!) {
       items {
         deviceId
         deviceOrigionalName
-        macId
+        macAddress
       }
       nextToken
     }
@@ -229,7 +229,7 @@ mutation DeleteAppUsage($input: DeleteAppUsageInput!) {
 }
 mutation CreateDevice($input: CreateDeviceInput!) {
   createDevice(input: $input) {
-    deviceDatas {
+    devicesData {
       deviceDataId
       deviceOrigionalName
       deviceUpdatedName
@@ -242,7 +242,7 @@ mutation CreateDevice($input: CreateDeviceInput!) {
     }
     deviceId
     deviceOrigionalName
-    macId
+    macAddress
     user {
       devices {
         nextToken
@@ -258,7 +258,7 @@ mutation CreateDevice($input: CreateDeviceInput!) {
 }
 mutation UpdateDevice($input: UpdateDeviceInput!) {
   updateDevice(input: $input) {
-    deviceDatas {
+    devicesData {
       deviceDataId
       deviceOrigionalName
       deviceUpdatedName
@@ -271,7 +271,7 @@ mutation UpdateDevice($input: UpdateDeviceInput!) {
     }
     deviceId
     deviceOrigionalName
-    macId
+    macAddress
     user {
       devices {
         nextToken
@@ -287,7 +287,7 @@ mutation UpdateDevice($input: UpdateDeviceInput!) {
 }
 mutation DeleteDevice($input: DeleteDeviceInput!) {
   deleteDevice(input: $input) {
-    deviceDatas {
+    devicesData {
       deviceDataId
       deviceOrigionalName
       deviceUpdatedName
@@ -300,7 +300,7 @@ mutation DeleteDevice($input: DeleteDeviceInput!) {
     }
     deviceId
     deviceOrigionalName
-    macId
+    macAddress
     user {
       devices {
         nextToken
@@ -323,7 +323,7 @@ mutation CreateDeviceData($input: CreateDeviceDataInput!) {
       items {
         deviceId
         deviceOrigionalName
-        macId
+        macAddress
       }
       nextToken
     }
@@ -365,7 +365,7 @@ mutation UpdateDeviceData($input: UpdateDeviceDataInput!) {
       items {
         deviceId
         deviceOrigionalName
-        macId
+        macAddress
       }
       nextToken
     }
@@ -407,7 +407,7 @@ mutation DeleteDeviceData($input: DeleteDeviceDataInput!) {
       items {
         deviceId
         deviceOrigionalName
-        macId
+        macAddress
       }
       nextToken
     }

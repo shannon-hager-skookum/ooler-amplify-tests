@@ -50,13 +50,13 @@ type AppUsage @model(subscriptions: null) {
 
 type Device @model(subscriptions: null) {
   #DeviceDataList(limit: Int, nextToken: String): DeviceDataConnection
-  deviceDatas: DeviceData @connection(name: "DevicesDeviceData")
+  devicesData: DeviceData @connection(name: "DevicesDeviceData")
   #DeviceDetailsList(limit: Int, nextToken: String): DeviceDetailsConnection
   #ScheduleList(limit: Int, nextToken: String): ScheduleConnection
   #schedules: [Schedule] @connection(name: "DeviceSchedules")
   deviceId: ID!
   deviceOrigionalName: String!
-  macId: String!
+  macAddress: String!
   #userId: ID!
   user: User @connection(name: "UserDevices")
 }
@@ -236,3 +236,26 @@ type Schedule @model(subscriptions: null) {
 #  items: [Schedule]
 #  nextToken: String
 #}
+
+
+
+
+
+
+
+
+
+
+
+
+
+input CreateDeviceLogInput {
+  logId: ID
+  description: String!
+  deviceId: ID!
+  logEntry: String!
+  timeStamp: String!
+}
+type Mutation {
+  createBatchDeviceLogs(deviceLogs: [CreateDeviceLogInput!]): [DeviceLog]
+}

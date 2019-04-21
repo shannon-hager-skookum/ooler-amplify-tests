@@ -1,0 +1,15 @@
+## custom batch create resolver for DeviceLog
+
+#set($deviceLogs = [])
+#foreach($deviceLog in ${ctx.args.deviceLog})
+    $util.qr($deviceLog.put("logId", $util.defaultIfNullOrBlank($deviceLog.logId, $util.autoId())))
+    $util.qr($deviceLogs.add($util.dynamodb.toMapValues($deviceLog)))
+#end
+
+{
+    "version" : "2018-05-29",
+    "operation" : "BatchPutItem",
+    "tables" : {
+        "DeviceLogTable": $utils.toJson($deviceLogs)
+    }
+}
