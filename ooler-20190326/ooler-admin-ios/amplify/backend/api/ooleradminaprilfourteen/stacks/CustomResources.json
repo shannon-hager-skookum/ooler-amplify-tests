@@ -104,7 +104,7 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Fn::GetAtt": ["CreateBatchDEviceLogsFunction", "FunctionId"]
+              "Fn::GetAtt": ["CreateBatchDeviceLogsFunction", "FunctionId"]
             }
           ]
         },
