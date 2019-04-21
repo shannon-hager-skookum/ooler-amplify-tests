@@ -2,6 +2,59 @@
 
 import AWSAppSync
 
+public struct CreateDeviceLogInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(logId: GraphQLID? = nil, description: String, deviceId: GraphQLID, logEntry: String, timeStamp: String) {
+    graphQLMap = ["logId": logId, "description": description, "deviceId": deviceId, "logEntry": logEntry, "timeStamp": timeStamp]
+  }
+
+  public var logId: GraphQLID? {
+    get {
+      return graphQLMap["logId"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "logId")
+    }
+  }
+
+  public var description: String {
+    get {
+      return graphQLMap["description"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "description")
+    }
+  }
+
+  public var deviceId: GraphQLID {
+    get {
+      return graphQLMap["deviceId"] as! GraphQLID
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "deviceId")
+    }
+  }
+
+  public var logEntry: String {
+    get {
+      return graphQLMap["logEntry"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "logEntry")
+    }
+  }
+
+  public var timeStamp: String {
+    get {
+      return graphQLMap["timeStamp"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "timeStamp")
+    }
+  }
+}
+
 public struct CreateUserInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
@@ -613,59 +666,6 @@ public struct DeleteDeviceDataInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "id")
-    }
-  }
-}
-
-public struct CreateDeviceLogInput: GraphQLMapConvertible {
-  public var graphQLMap: GraphQLMap
-
-  public init(description: String, deviceId: GraphQLID, logEntry: String, logId: GraphQLID, timeStamp: String) {
-    graphQLMap = ["description": description, "deviceId": deviceId, "logEntry": logEntry, "logId": logId, "timeStamp": timeStamp]
-  }
-
-  public var description: String {
-    get {
-      return graphQLMap["description"] as! String
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "description")
-    }
-  }
-
-  public var deviceId: GraphQLID {
-    get {
-      return graphQLMap["deviceId"] as! GraphQLID
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "deviceId")
-    }
-  }
-
-  public var logEntry: String {
-    get {
-      return graphQLMap["logEntry"] as! String
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "logEntry")
-    }
-  }
-
-  public var logId: GraphQLID {
-    get {
-      return graphQLMap["logId"] as! GraphQLID
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "logId")
-    }
-  }
-
-  public var timeStamp: String {
-    get {
-      return graphQLMap["timeStamp"] as! String
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "timeStamp")
     }
   }
 }
@@ -2550,6 +2550,125 @@ public struct ModelBooleanFilterInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "eq")
+    }
+  }
+}
+
+public final class CreateBatchDeviceLogsMutation: GraphQLMutation {
+  public static let operationString =
+    "mutation CreateBatchDeviceLogs($deviceLogs: [CreateDeviceLogInput!]) {\n  createBatchDeviceLogs(deviceLogs: $deviceLogs) {\n    __typename\n    description\n    deviceId\n    logEntry\n    logId\n    timeStamp\n  }\n}"
+
+  public var deviceLogs: [CreateDeviceLogInput]?
+
+  public init(deviceLogs: [CreateDeviceLogInput]?) {
+    self.deviceLogs = deviceLogs
+  }
+
+  public var variables: GraphQLMap? {
+    return ["deviceLogs": deviceLogs]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("createBatchDeviceLogs", arguments: ["deviceLogs": GraphQLVariable("deviceLogs")], type: .list(.object(CreateBatchDeviceLog.selections))),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(createBatchDeviceLogs: [CreateBatchDeviceLog?]? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "createBatchDeviceLogs": createBatchDeviceLogs.flatMap { $0.map { $0.flatMap { $0.snapshot } } }])
+    }
+
+    public var createBatchDeviceLogs: [CreateBatchDeviceLog?]? {
+      get {
+        return (snapshot["createBatchDeviceLogs"] as? [Snapshot?]).flatMap { $0.map { $0.flatMap { CreateBatchDeviceLog(snapshot: $0) } } }
+      }
+      set {
+        snapshot.updateValue(newValue.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, forKey: "createBatchDeviceLogs")
+      }
+    }
+
+    public struct CreateBatchDeviceLog: GraphQLSelectionSet {
+      public static let possibleTypes = ["DeviceLog"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("description", type: .nonNull(.scalar(String.self))),
+        GraphQLField("deviceId", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("logEntry", type: .nonNull(.scalar(String.self))),
+        GraphQLField("logId", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("timeStamp", type: .nonNull(.scalar(String.self))),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(description: String, deviceId: GraphQLID, logEntry: String, logId: GraphQLID, timeStamp: String) {
+        self.init(snapshot: ["__typename": "DeviceLog", "description": description, "deviceId": deviceId, "logEntry": logEntry, "logId": logId, "timeStamp": timeStamp])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var description: String {
+        get {
+          return snapshot["description"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "description")
+        }
+      }
+
+      public var deviceId: GraphQLID {
+        get {
+          return snapshot["deviceId"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "deviceId")
+        }
+      }
+
+      public var logEntry: String {
+        get {
+          return snapshot["logEntry"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "logEntry")
+        }
+      }
+
+      public var logId: GraphQLID {
+        get {
+          return snapshot["logId"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "logId")
+        }
+      }
+
+      public var timeStamp: String {
+        get {
+          return snapshot["timeStamp"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "timeStamp")
+        }
+      }
     }
   }
 }
