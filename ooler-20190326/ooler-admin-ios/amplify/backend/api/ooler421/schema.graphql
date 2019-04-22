@@ -96,17 +96,17 @@ type Schedule @model(subscriptions: null) {
 
 
 
-#input CreateDeviceLogInput {
-#  id: ID
-#  description: String!
-#  deviceId: ID!
-#  logEntry: String!
-#  timeStamp: String!
-#}
+input CreateDeviceLogInput {
+  id: ID
+  description: String!
+  deviceId: ID!
+  logEntry: String!
+  timeStamp: String!
+}
 
-#type Mutation {
-#  createBatchDeviceLogs(deviceLogs: [CreateDeviceLogInput!]): [DeviceLog]
-#}
+type Mutation {
+  createBatchDeviceLogs(deviceLogs: [CreateDeviceLogInput!]): [DeviceLog]
+}
 
 
 #type Mutation {
