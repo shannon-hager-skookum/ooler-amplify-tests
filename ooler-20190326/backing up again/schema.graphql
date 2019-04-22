@@ -1,14 +1,14 @@
 
 type User @model(subscriptions: null) {
-  #devices: [Device] @connection(name: "UserDevices")
-  #ratings: [Rating] @connection(name: "UserRatings")
+  devices: [Device] @connection(name: "UserDevices")
+  ratings: [Rating] @connection(name: "UserRatings")
   email: AWSEmail
   name: String!
   userId: ID!
 }
 
 type AdvanceSchedule @model(subscriptions: null) {
-  #schedule: Schedule @connection(name: "ScheduleAdvancedSchedules")
+  schedule: Schedule @connection(name: "ScheduleAdvancedSchedules")
   advanceScheduleId: ID!
   hour: Int!
   min: Int!
@@ -21,7 +21,7 @@ type AdvanceSchedule @model(subscriptions: null) {
 }
 
 type AppUsage @model(subscriptions: null) {
-  #appUsageId: ID!
+  appUsageId: ID!
   parameters: String!
   timestamp: String!
   userId: ID!
@@ -29,18 +29,18 @@ type AppUsage @model(subscriptions: null) {
 
 type Device @model(subscriptions: null) {
   id: ID!
-  #devicesData: DeviceData @connection(name: "DevicesDeviceData")
+  devicesData: DeviceData @connection(name: "DevicesDeviceData")
   deviceOrigionalName: String!
   macAddress: String!
-  #user: User @connection(name: "UserDevices")
+  user: User @connection(name: "UserDevices")
 }
 
 type DeviceData @model(subscriptions: null) {
   deviceDataId: ID!
   deviceOrigionalName: String!
   deviceUpdatedName: String!
-  #devices: [Device] @connection(name: "DevicesDeviceData")
-  #schedules: [Schedule] @connection(name: "DeviceDataSchedules")
+  devices: [Device] @connection(name: "DevicesDeviceData")
+  schedules: [Schedule] @connection(name: "DeviceDataSchedules")
 }
 
 type DeviceLog @model(subscriptions: null) {
@@ -52,7 +52,7 @@ type DeviceLog @model(subscriptions: null) {
 }
 
 type Integrations @model(subscriptions: null) {
-  #integrationId: ID!
+  integrationId: ID!
   integrationKey: String!
   parameters: String!
   timestamp: String!
@@ -131,17 +131,17 @@ type Rating @model(subscriptions: null) {
   ratingCount: Int!
   ratingId: ID!
   ratingTime: String!
-  #user: User @connection(name: "UserRatings")
+  user: User @connection(name: "UserRatings")
 }
 
 type Schedule @model(subscriptions: null) {
-  #advancedSchedules: [AdvanceSchedule] @connection(name: "ScheduleAdvancedSchedules")
+  advancedSchedules: [AdvanceSchedule] @connection(name: "ScheduleAdvancedSchedules")
   bedTimeInSec: String
   bedTimeReminder: Boolean!
   bleDays: String!
   daysInArray: AWSJSON!
   deviceOrigionalName: String!
-  #deviceData: DeviceData @connection(name: "DeviceDataSchedules")
+  deviceData: DeviceData @connection(name: "DeviceDataSchedules")
   isActive: Boolean
   scheduleDsn: String
   scheduleId: ID!
@@ -171,7 +171,6 @@ input CreateDeviceLogInput {
   logEntry: String!
   timeStamp: String!
 }
-
 type Mutation {
   createBatchDeviceLogs(deviceLogs: [CreateDeviceLogInput!]): [DeviceLog]
 }
