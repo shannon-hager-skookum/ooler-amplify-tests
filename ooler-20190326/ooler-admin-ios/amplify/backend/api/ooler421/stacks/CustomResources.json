@@ -48,12 +48,7 @@
                 ]
               ]
             },
-            "DataSourceName": {
-              "Fn::GetAtt": [
-                "DeviceLogDataSource",
-                "Name"
-              ]
-            },
+		        "DataSourceName": "DeviceLogTable",
             "FunctionVersion": "2018-05-29",
             "RequestMappingTemplateS3Location": {
               "Fn::Sub": [

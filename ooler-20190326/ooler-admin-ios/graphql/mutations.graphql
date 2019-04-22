@@ -1,4 +1,13 @@
 # this is an auto generated file. This will be overwritten
+mutation CreateBatchDeviceLogs($deviceLogs: [CreateDeviceLogInput!]) {
+  createBatchDeviceLogs(deviceLogs: $deviceLogs) {
+    id
+    description
+    deviceId
+    logEntry
+    timeStamp
+  }
+}
 mutation CreateUser($input: CreateUserInput!) {
   createUser(input: $input) {
     devices {
