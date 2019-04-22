@@ -1,0 +1,244 @@
+# this is an auto generated file. This will be overwritten
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    email
+    name
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      email
+      name
+    }
+    nextToken
+  }
+}
+query GetAdvanceSchedule($id: ID!) {
+  getAdvanceSchedule(id: $id) {
+    id
+    hour
+    min
+    prefixDate
+    scheduleId
+    temp
+    tempUnit
+    timeInSec
+    timeUnit
+  }
+}
+query ListAdvanceSchedules(
+  $filter: ModelAdvanceScheduleFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAdvanceSchedules(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      hour
+      min
+      prefixDate
+      scheduleId
+      temp
+      tempUnit
+      timeInSec
+      timeUnit
+    }
+    nextToken
+  }
+}
+query GetAppUsage($id: ID!) {
+  getAppUsage(id: $id) {
+    id
+    parameters
+    timestamp
+  }
+}
+query ListAppUsages(
+  $filter: ModelAppUsageFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAppUsages(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      parameters
+      timestamp
+    }
+    nextToken
+  }
+}
+query GetDevice($id: ID!) {
+  getDevice(id: $id) {
+    id
+    deviceOrigionalName
+    macAddress
+  }
+}
+query ListDevices(
+  $filter: ModelDeviceFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listDevices(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      deviceOrigionalName
+      macAddress
+    }
+    nextToken
+  }
+}
+query GetDeviceData($id: ID!) {
+  getDeviceData(id: $id) {
+    id
+    deviceOrigionalName
+    deviceUpdatedName
+  }
+}
+query ListDeviceDatas(
+  $filter: ModelDeviceDataFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listDeviceDatas(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      deviceOrigionalName
+      deviceUpdatedName
+    }
+    nextToken
+  }
+}
+query GetDeviceLog($id: ID!) {
+  getDeviceLog(id: $id) {
+    id
+    description
+    deviceId
+    logEntry
+    timeStamp
+  }
+}
+query ListDeviceLogs(
+  $filter: ModelDeviceLogFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listDeviceLogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      description
+      deviceId
+      logEntry
+      timeStamp
+    }
+    nextToken
+  }
+}
+query GetIntegrations($id: ID!) {
+  getIntegrations(id: $id) {
+    id
+    integrationKey
+    parameters
+  }
+}
+query ListIntegrationss(
+  $filter: ModelIntegrationsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listIntegrationss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      integrationKey
+      parameters
+    }
+    nextToken
+  }
+}
+query GetRating($id: ID!) {
+  getRating(id: $id) {
+    id
+    ratingCount
+    ratingTime
+  }
+}
+query ListRatings(
+  $filter: ModelRatingFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listRatings(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      ratingCount
+      ratingTime
+    }
+    nextToken
+  }
+}
+query GetSchedule($id: ID!) {
+  getSchedule(id: $id) {
+    id
+    bedTimeInSec
+    bedTimeReminder
+    bleDays
+    daysInArray
+    deviceOrigionalName
+    isActive
+    scheduleDsn
+    scheduleName
+    scheduleStorageId
+    sleepTimeHour
+    sleepTimeMin
+    sleepTimeUnit
+    storageId
+    temperature
+    temperatureUnit
+    type
+    upTimeHour
+    upTimeInSec
+    upTimeMin
+    upTimeUnit
+    warmAwake
+  }
+}
+query ListSchedules(
+  $filter: ModelScheduleFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSchedules(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      bedTimeInSec
+      bedTimeReminder
+      bleDays
+      daysInArray
+      deviceOrigionalName
+      isActive
+      scheduleDsn
+      scheduleName
+      scheduleStorageId
+      sleepTimeHour
+      sleepTimeMin
+      sleepTimeUnit
+      storageId
+      temperature
+      temperatureUnit
+      type
+      upTimeHour
+      upTimeInSec
+      upTimeMin
+      upTimeUnit
+      warmAwake
+    }
+    nextToken
+  }
+}

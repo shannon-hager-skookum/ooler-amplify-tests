@@ -1,12 +1,12 @@
 {
 	"auth": {
-		"cognitoe3303401": {
+		"cognitocd8ba73a": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation"
 		}
 	},
 	"api": {
-		"envstest0": {
+		"ooler421": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {

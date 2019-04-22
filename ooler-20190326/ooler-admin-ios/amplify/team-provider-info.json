@@ -1,0 +1,19 @@
+{
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "ooler-421-20190421203850-authRole",
+            "UnauthRoleArn": "arn:aws:iam::380718798498:role/ooler-421-20190421203850-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::380718798498:role/ooler-421-20190421203850-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "ooler-421-20190421203850-deployment",
+            "UnauthRoleName": "ooler-421-20190421203850-unauthRole",
+            "StackName": "ooler-421-20190421203850",
+            "StackId": "arn:aws:cloudformation:us-east-1:380718798498:stack/ooler-421-20190421203850/ffcb8230-6496-11e9-acc7-0e26c4fc90f2"
+        },
+        "categories": {
+            "auth": {
+                "cognitocd8ba73a": {}
+            }
+        }
+    }
+}
