@@ -2,13 +2,14 @@
 type User @model(subscriptions: null) {
   devices: [Device] @connection(name: "UserDevices")
   ratings: [Rating] @connection(name: "UserRatings")
+  integrations: [Integration] @connection(name: "UserIntegrations")
   id: ID!
   email: AWSEmail
   name: String!
 }
 
 type AdvanceSchedule @model(subscriptions: null) {
-  #schedule: Schedule @connection(name: "ScheduleAdvancedSchedules")
+  schedule: Schedule @connection(name: "ScheduleAdvancedSchedules")
   id: ID!
   hour: Int!
   min: Int!
@@ -28,7 +29,7 @@ type AppUsage @model(subscriptions: null) {
 }
 
 type Device @model(subscriptions: null) {
-  #devicesData: DeviceData @connection(name: "DevicesDeviceData")
+  devicesData: DeviceData @connection(name: "DevicesDeviceData")
   user: User @connection(name: "UserDevices")
   id: ID!
   deviceOrigionalName: String!
@@ -36,7 +37,7 @@ type Device @model(subscriptions: null) {
 }
 
 type DeviceData @model(subscriptions: null) {
-  #devices: [Device] @connection(name: "DevicesDeviceData")
+  devices: [Device] @connection(name: "DevicesDeviceData")
   #schedules: [Schedule] @connection(name: "DeviceDataSchedules")
   id: ID!
   deviceOrigionalName: String!
@@ -55,7 +56,7 @@ type Integrations @model(subscriptions: null) {
   id: ID!
   integrationKey: String!
   parameters: String!
-  #userId: ID!
+  user: User @connection(name: "UserIntegrations")
 }
 
 type Rating @model(subscriptions: null) {
@@ -66,7 +67,7 @@ type Rating @model(subscriptions: null) {
 }
 
 type Schedule @model(subscriptions: null) {
-  #advancedSchedules: [AdvanceSchedule] @connection(name: "ScheduleAdvancedSchedules")
+  advancedSchedules: [AdvanceSchedule] @connection(name: "ScheduleAdvancedSchedules")
   #deviceData: DeviceData @connection(name: "DeviceDataSchedules")
   id: ID!
   bedTimeInSec: String

@@ -1,6 +1,22 @@
 # this is an auto generated file. This will be overwritten
 mutation CreateUser($input: CreateUserInput!) {
   createUser(input: $input) {
+    devices {
+      items {
+        id
+        deviceOrigionalName
+        macAddress
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        ratingCount
+        ratingTime
+      }
+      nextToken
+    }
     id
     email
     name
@@ -8,6 +24,22 @@ mutation CreateUser($input: CreateUserInput!) {
 }
 mutation UpdateUser($input: UpdateUserInput!) {
   updateUser(input: $input) {
+    devices {
+      items {
+        id
+        deviceOrigionalName
+        macAddress
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        ratingCount
+        ratingTime
+      }
+      nextToken
+    }
     id
     email
     name
@@ -15,6 +47,22 @@ mutation UpdateUser($input: UpdateUserInput!) {
 }
 mutation DeleteUser($input: DeleteUserInput!) {
   deleteUser(input: $input) {
+    devices {
+      items {
+        id
+        deviceOrigionalName
+        macAddress
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        ratingCount
+        ratingTime
+      }
+      nextToken
+    }
     id
     email
     name
@@ -82,6 +130,17 @@ mutation DeleteAppUsage($input: DeleteAppUsageInput!) {
 }
 mutation CreateDevice($input: CreateDeviceInput!) {
   createDevice(input: $input) {
+    user {
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      id
+      email
+      name
+    }
     id
     deviceOrigionalName
     macAddress
@@ -89,6 +148,17 @@ mutation CreateDevice($input: CreateDeviceInput!) {
 }
 mutation UpdateDevice($input: UpdateDeviceInput!) {
   updateDevice(input: $input) {
+    user {
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      id
+      email
+      name
+    }
     id
     deviceOrigionalName
     macAddress
@@ -96,6 +166,17 @@ mutation UpdateDevice($input: UpdateDeviceInput!) {
 }
 mutation DeleteDevice($input: DeleteDeviceInput!) {
   deleteDevice(input: $input) {
+    user {
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      id
+      email
+      name
+    }
     id
     deviceOrigionalName
     macAddress
@@ -175,6 +256,17 @@ mutation CreateRating($input: CreateRatingInput!) {
     id
     ratingCount
     ratingTime
+    user {
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      id
+      email
+      name
+    }
   }
 }
 mutation UpdateRating($input: UpdateRatingInput!) {
@@ -182,6 +274,17 @@ mutation UpdateRating($input: UpdateRatingInput!) {
     id
     ratingCount
     ratingTime
+    user {
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      id
+      email
+      name
+    }
   }
 }
 mutation DeleteRating($input: DeleteRatingInput!) {
@@ -189,6 +292,17 @@ mutation DeleteRating($input: DeleteRatingInput!) {
     id
     ratingCount
     ratingTime
+    user {
+      devices {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      id
+      email
+      name
+    }
   }
 }
 mutation CreateSchedule($input: CreateScheduleInput!) {
