@@ -2,7 +2,7 @@
 type User @model(subscriptions: null) {
   devices: [Device] @connection(name: "UserDevices")
   ratings: [Rating] @connection(name: "UserRatings")
-  integrations: [Integration] @connection(name: "UserIntegrations")
+  #integrations: [Integrations] @connection(name: "UserIntegrations")
   id: ID!
   email: AWSEmail
   name: String!
@@ -21,12 +21,12 @@ type AdvanceSchedule @model(subscriptions: null) {
   timeUnit: String!
 }
 
-type AppUsage @model(subscriptions: null) {
-  id: ID!
-  parameters: String!
-  timestamp: String!
-  #userId: ID!
-}
+#type AppUsage @model(subscriptions: null) {
+#  id: ID!
+#  parameters: String!
+#  timestamp: String!
+#  userId: ID!
+#}
 
 type Device @model(subscriptions: null) {
   devicesData: DeviceData @connection(name: "DevicesDeviceData")
@@ -38,7 +38,7 @@ type Device @model(subscriptions: null) {
 
 type DeviceData @model(subscriptions: null) {
   devices: [Device] @connection(name: "DevicesDeviceData")
-  #schedules: [Schedule] @connection(name: "DeviceDataSchedules")
+  schedules: [Schedule] @connection(name: "DeviceDataSchedules")
   id: ID!
   deviceOrigionalName: String!
   deviceUpdatedName: String!
@@ -52,12 +52,12 @@ type DeviceLog @model(subscriptions: null) {
   timeStamp: String!
 }
 
-type Integrations @model(subscriptions: null) {
-  id: ID!
-  integrationKey: String!
-  parameters: String!
-  user: User @connection(name: "UserIntegrations")
-}
+#type Integrations @model(subscriptions: null) {
+#  id: ID!
+#  integrationKey: String!
+#  parameters: String!
+#  user: User @connection(name: "UserIntegrations")
+#}
 
 type Rating @model(subscriptions: null) {
   id: ID!
@@ -68,7 +68,7 @@ type Rating @model(subscriptions: null) {
 
 type Schedule @model(subscriptions: null) {
   advancedSchedules: [AdvanceSchedule] @connection(name: "ScheduleAdvancedSchedules")
-  #deviceData: DeviceData @connection(name: "DeviceDataSchedules")
+  deviceData: DeviceData @connection(name: "DeviceDataSchedules")
   id: ID!
   bedTimeInSec: String
   bedTimeReminder: Boolean!
